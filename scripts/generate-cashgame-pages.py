@@ -107,8 +107,8 @@ footer{{max-width:1120px;margin:auto;padding:25px 18px;color:#71808d;font-size:1
 <footer>Helvetic Poker · Offizielle Quellen · tägliche Quellenprüfung · Turniere und Cash Games werden getrennt geführt.</footer>
 </body></html>"""
 
-def logo_img(name, source_url, cls="provider-logo"):
-    return f'<img class="{cls}" src="{escape(favicon(source_url))}" alt="{escape(name)} Logo" loading="lazy">'
+def logo_img(name, source_url, provider_id=None, cls="provider-logo"):
+    return f'<img class="{cls}" src="{escape(provider_logo(provider_id, source_url))}" alt="{escape(name)} Logo" loading="lazy">'
 
 def provider_by_id(provider_id):
     return next((s for s in sources if s["id"] == provider_id), None)
@@ -127,7 +127,7 @@ def card(g):
         buy = f"{money(g.get('min_buy_in'))} – {money(g.get('max_buy_in'))}"
     source_url = g.get("source_url") or (s["source_url"] if s else BASE)
     return f"""<article class="card">
-<div class="card-top">{logo_img(provider, source_url)}<div><div class="provider-name">{escape(provider)}</div><div class="provider-city">{escape(city)} · {escape(canton)}</div></div></div>
+<div class="card-top">{logo_img(provider, source_url, s.get("id") if s else g.get("provider_id"))}<div><div class="provider-name">{escape(provider)}</div><div class="provider-city">{escape(city)} · {escape(canton)}</div></div></div>
 <div class="card-body">
 <h3>{escape(g.get("variant",""))} <span class="stakes">{escape(g.get("stakes",""))}</span></h3>
 <div class="detail-grid"><div class="detail"><div class="detail-label">Buy-in</div><div class="detail-value">{escape(buy)}</div></div><div class="detail"><div class="detail-label">Status</div><div class="detail-value">Bestätigt</div></div></div>
@@ -137,7 +137,7 @@ def card(g):
 
 def casino_card(s):
     return f"""<a class="card casino-card" href="{BASE}/anbieter/{escape(s["id"])}/">
-{logo_img(s["name"], s["source_url"])}
+{logo_img(s["name"], s["source_url"], s["id"])}
 <div><div class="provider-name">{escape(s["name"])}</div><div class="provider-city">{escape(s["city"])} · {escape(s["canton"])}</div></div>
 </a>"""
 
