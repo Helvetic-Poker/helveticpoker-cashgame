@@ -25,6 +25,7 @@ def domain(url):
     return (urlparse(url).hostname or "").removeprefix("www.")
 
 PROVIDER_LOGOS = {
+    # Deployment sanity check: keep the generator on the explicit build path.
     # Verified full logo/wordmark assets where available; no favicons for the
     # eight brands explicitly audited here.
     "casino-baden": "https://www.grandcasinobaden.ch/var/site/storage/original/image/42a66439226a0c364a5a0c53a6ef7728.svg",
