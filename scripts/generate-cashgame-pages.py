@@ -144,6 +144,7 @@ def casino_card(s):
 </a>"""
 
 OUT.mkdir(exist_ok=True)
+# Keep the Search Console verification file in the published root.
 verification_file = ROOT / "google7842e2a0234e258b.html"
 if verification_file.exists():
     (OUT / verification_file.name).write_text(verification_file.read_text(encoding="utf-8"), encoding="utf-8")
