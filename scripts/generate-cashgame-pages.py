@@ -95,12 +95,12 @@ a{{color:inherit}}
 .menuBtn{{display:none;margin-left:auto;width:44px;height:44px;border:1px solid #ffffff35;border-radius:9px;background:#ffffff10;color:#fff;font-size:25px;line-height:1;cursor:pointer}}
 main{{max-width:1120px;margin:auto;padding:26px 18px 55px}}
 .crumb{{font-size:13px;color:#687580;margin-bottom:14px}}
-.hero{{color:#13263a;background:#fff;border:1px solid #dfe5ea;border-radius:16px;padding:30px;box-shadow:0 8px 24px #10223810}}
+.hero{{color:#fff;background:linear-gradient(90deg,#071722e8,#12384fb0),linear-gradient(135deg,#6c8ea0,#28556c 50%,#102432);position:relative;overflow:hidden;border:0;border-radius:0;padding:40px 30px 35px;box-shadow:none;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);padding-left:max(30px,calc((100vw - 1100px)/2 + 18px));padding-right:max(30px,calc((100vw - 1100px)/2 + 18px))}}
 h1{{margin:0;font-size:clamp(38px,6vw,60px);line-height:1;margin:0 0 9px;letter-spacing:-.045em;font-weight:600}}
 h2{{font-size:25px;margin:30px 0 12px}}
-.lead{{color:#5e6b78;font-size:17px;max-width:850px;margin:14px 0 0}}
+.lead{{color:rgba(255,255,255,.88);font-size:17px;max-width:850px;margin:14px 0 0}}
 .stats{{display:flex;gap:8px;margin-top:18px;flex-wrap:wrap}}
-.stat{{padding:9px 12px;border:1px solid #e0e5ea;border-radius:10px;background:#fafbfc}}
+.stat{{padding:9px 12px;border:1px solid #e0e5ea;border-radius:10px;background:#fff}}
 .stat strong{{display:block;font-size:19px}}
 .stat span{{font-size:11px;color:#6c7884}}
 .grid{{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:14px}}
@@ -127,7 +127,7 @@ footer{{max-width:1180px;margin:auto;padding:25px 18px;color:#71808d;font-size:1
 @media(max-width:1100px){{.links{{display:none}}.menuBtn{{display:block}}}}
 @media(max-width:850px){{.grid{{grid-template-columns:repeat(2,minmax(0,1fr))}}}}
 @media(max-width:720px){{
-header{{height:64px}}.nav{{padding:0 12px;gap:12px}}.menuBtn{{display:block}}
+header{{height:64px}}.nav{{padding:0 12px;gap:12px}}.menuBtn{{display:block}}.hero{{padding:26px 16px 30px}}
 .links.open{{display:flex;position:absolute;top:64px;left:10px;right:10px;margin:0;padding:8px;background:#102b3b;border:1px solid #ffffff18;border-radius:0 0 12px 12px;box-shadow:0 8px 18px #00101830;flex-direction:column;gap:0;z-index:30}}
 .links.open a{{padding:14px 12px;font-size:13px;border-bottom:1px solid #ffffff12}}.links.open a:last-child{{border-bottom:0}}.links.open a.active:after{{display:none}}
 .brandLogo{{width:58px;height:58px}}main{{padding:20px 10px}}.hero{{padding:24px 20px}}.grid{{grid-template-columns:1fr}}
