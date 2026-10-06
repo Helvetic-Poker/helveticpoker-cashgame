@@ -31,7 +31,7 @@ jobs:
         run: |
           test -s public/index.html
           test "$(find public -name index.html | wc -l)" -ge 22
-      - uses: actions/upload-pages-artifact@v3
+      - uses: actions/upload-pages-artifact@v4
         with:
           path: public
   deploy:
