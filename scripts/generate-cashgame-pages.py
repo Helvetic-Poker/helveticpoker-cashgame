@@ -1,5 +1,5 @@
 from pathlib import base64
-import Path
+from pathlib import Path
 from html import escape
 from urllib.parse import urlparse
 import json
@@ -27,7 +27,7 @@ def domain(url):
 PROVIDER_LOGOS = {
     # Verified full logo/wordmark assets where available; no favicons for the
     # eight brands explicitly audited here.
-    "casino-baden": "https://assets.kununu.com/media/prod/profiles/logos/4437e8e3-39aa-4eaf-83df-120f43f38657_1_6981cebe25847.gif",
+    "casino-baden": "https://www.grandcasinobaden.ch/var/site/storage/original/image/42a66439226a0c364a5a0c53a6ef7728.svg",
     "casino-bad-ragaz": "https://swiss007.com/wp-content/uploads/2021/06/badragaz.jpg",
     "casino-basel": "https://media.jobs.ch/media/cfcf4c22-f90e-4525-a202-85ed807c5e53",
     "casino-bern": "https://media.jobs.ch/images/a9efa51a-1c0e-4e26-94b7-018547a987b9/3379x1734.png",
@@ -54,14 +54,10 @@ INLINE_LOGOS = {
 }
 
 def favicon(url):
-def favicon(url):
     host = domain(url)
     return f"https://www.google.com/s2/favicons?domain={host}&sz=128" if host else ""
 
 def provider_logo(provider_id, source_url):
-    if provider_id in INLINE_LOGOS:
-        encoded = base64.b64encode(INLINE_LOGOS[provider_id].encode("utf-8")).decode("ascii")
-        return "data:image/svg+xml;base64," + encoded
     return PROVIDER_LOGOS.get(provider_id) or favicon(source_url)
 
 def initials(name):
