@@ -1,4 +1,3 @@
-from pathlib import base64
 from pathlib import Path
 from html import escape
 from urllib.parse import urlparse
