@@ -42,11 +42,11 @@ PROVIDER_LOGOS = {
     "casino-meyrin": "https://www.pasino.ch/favicon.ico",
     "casino-montreux": "https://www.casinosbarriere.com/favicon.ico",
     "casino-prilly": "https://grandcasinoprilly.com/wp-content/uploads/2026/09/Grand-casino-prilly-logo-scaled.png",
-    "casino-st-gallen": "https://www.swisscasinos.ch/favicon.ico",
+    "casino-st-gallen": "https://bin.staticlocal.ch/localplace-logo/1a/1a30eec70836003858431fdb9f5cf3fc0d7bf832/Swiss_Casino_StGallen_2farbig_yellow_black_cmyk_zentriert.png",
     "casino-winterthur": "https://www.swisscasinos.ch/sites/default/files/2025-10/Swiss_Casino_Casino_Winterthur_1farbig_black_zentriert.png",
     "casino-neuenburg": "https://images.ctfassets.net/7q178rxww3yj/5g2NTlUqOZu98CcAZJh6A5/1119ee692730a5dd7e7043226aaaaf97/Card_Casino_Neuchatel.svg",
     "casino-pfaeffikon": "https://images.ctfassets.net/7q178rxww3yj/69SKrqeaccb23XSuZljdsE/0f61378a52d1784f16fa87af2436d2d9/casinopf%C3%A4ffikon.svg",
-    "casino-zuerich": "https://images.ctfassets.net/7q178rxww3yj/2CRS7Oml9TPqK4zLgkZRlz/61d6f582ee510affaea3fa4731f36ee0/Card_Casino_Zurich.svg",
+    "casino-zuerich": "https://bin.staticlocal.ch/localplace-logo/5b/5bcd21c2110ea2ad0b024769faae663f47811e53/Swiss_Casino_Zuerich_2farbig_yellow_black_cmyk_zentriert.png",
 }
 
 INLINE_LOGOS = {
