@@ -23,9 +23,20 @@ def money(v):
 def domain(url):
     return (urlparse(url).hostname or "").removeprefix("www.")
 
+PROVIDER_LOGOS = {
+    "casino-luzern": "https://hrfestival.ch/wp-content/uploads/2025/11/logo_gcl_schwarz_gold_rgb.png",
+    "casino-granges-paccot": "https://jeux-gratuits-fr.casino/wp-content/uploads/2020/05/casino-barriere-fribourg-logo.jpg",
+    "casino-courrendlin": "https://cadeaux.lqj.ch/cdn/shop/files/Casino_26d56023-2212-45be-bb5c-22b836771d4e.jpg?v=1763623753",
+    "casino-lugano": "https://cdn.freebiesupply.com/logos/large/2x/casino-lugano-logo-png-transparent.png",
+    "casino-mendrisio": "https://hcap.ch/uploads/sponsor/Logo_Admiral_Mendrisio_50_x_20_cm-1.png",
+}
+
 def favicon(url):
     host = domain(url)
     return f"https://www.google.com/s2/favicons?domain={host}&sz=128" if host else ""
+
+def provider_logo(provider_id, source_url):
+    return PROVIDER_LOGOS.get(provider_id) or favicon(source_url)
 
 def initials(name):
     words = [w for w in re.findall(r"[A-Za-zÄÖÜäöüÀ-ÿ0-9]+", name) if w.lower() not in {"grand", "casino", "swiss"}]
