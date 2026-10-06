@@ -102,9 +102,9 @@ footer{{max-width:1120px;margin:auto;padding:25px 18px;color:#71808d;font-size:1
 </style>
 </head>
 <body>
-<header><div class="nav"><a href="{BASE}/"><img class="logo" src="{LOGO}" alt="Helvetic Poker"></a><nav class="links"><a href="{BASE}/">Cash Games</a><a href="{BASE}/#casinos">Casinos</a></nav></div></header>
+<header><div class="nav"><a href="{BASE}/"><img class="logo" src="{LOGO}" alt="Helvetic Poker"></a><nav class="links"><a href="{BASE}/">Cash Games</a><a href="{TOURNAMENTS}">Pokerturniere</a><a href="{BASE}/#casinos">Casinos</a></nav></div></header>
 <main>{body}</main>
-<footer>Helvetic Poker · Offizielle Quellen · tägliche Quellenprüfung · Turniere und Cash Games werden getrennt geführt.</footer>
+<footer>Helvetic Poker · <a href="{TOURNAMENTS}" style="color:inherit">Pokerturniere Schweiz</a> · <a href="{BASE}/" style="color:inherit">Cash Games Schweiz</a> · Offizielle Quellen · tägliche Quellenprüfung.</footer>
 </body></html>"""
 
 def logo_img(name, source_url, provider_id=None, cls="provider-logo"):
@@ -123,7 +123,9 @@ def card(g):
     city = g.get("city") or (s["city"] if s else "")
     canton = g.get("canton") or (s["canton"] if s else "")
     buy = "—"
-    if g.get("min_buy_in") is not None or g.get("max_buy_in") is not None:
+    if g.get("buy_in_note"):
+        buy = g.get("buy_in_note")
+    elif g.get("min_buy_in") is not None or g.get("max_buy_in") is not None:
         buy = f"{money(g.get('min_buy_in'))} – {money(g.get('max_buy_in'))}"
     source_url = g.get("source_url") or (s["source_url"] if s else BASE)
     return f"""<article class="card">
@@ -159,7 +161,7 @@ OUT.mkdir(exist_ok=True)
 for s in sources:
     sgames = [g for g in games if g.get("provider_id") == s["id"] and g.get("status") == "confirmed"]
     body = f"""<div class="crumb"><a href="{BASE}/">Cash Games Schweiz</a> › {escape(s["name"])}</div>
-<section class="hero"><div class="card-top" style="padding:0 0 14px">{logo_img(s["name"], s["source_url"])}<div><h1 style="font-size:clamp(30px,4vw,46px)">{escape(s["name"])}</h1><p class="lead">{escape(s["city"])} · Kanton {escape(s["canton"])}</p></div></div>
+<section class="hero"><div class="card-top" style="padding:0 0 14px">{logo_img(s["name"], s["source_url"], s["id"])}<div><h1 style="font-size:clamp(30px,4vw,46px)">{escape(s["name"])}</h1><p class="lead">{escape(s["city"])} · Kanton {escape(s["canton"])}</p></div></div>
 <a class="source" href="{escape(s["source_url"])}" rel="noopener" target="_blank">Offizielle Website →</a></section>"""
     if sgames:
         body += '<h2>Bestätigte Cash Games</h2><div class="grid">' + ''.join(card(g) for g in sgames) + '</div>'
