@@ -1,4 +1,5 @@
-from pathlib import Path
+from pathlib import base64
+import Path
 from html import escape
 from urllib.parse import urlparse
 import json
@@ -24,7 +25,8 @@ def domain(url):
     return (urlparse(url).hostname or "").removeprefix("www.")
 
 PROVIDER_LOGOS = {
-    # Verified brand marks. Prefer full logos/wordmarks over favicons.
+    # Verified full logo/wordmark assets where available; no favicons for the
+    # eight brands explicitly audited here.
     "casino-baden": "https://assets.kununu.com/media/prod/profiles/logos/4437e8e3-39aa-4eaf-83df-120f43f38657_1_6981cebe25847.gif",
     "casino-bad-ragaz": "https://swiss007.com/wp-content/uploads/2021/06/badragaz.jpg",
     "casino-basel": "https://media.jobs.ch/media/cfcf4c22-f90e-4525-a202-85ed807c5e53",
@@ -34,18 +36,21 @@ PROVIDER_LOGOS = {
     "casino-davos": "https://www.casinodavos.ch/wp-content/uploads/2025/03/cda-logo-circle-2-150x150.jpg",
     "casino-granges-paccot": "https://www.casinosbarriere.com/favicon.ico",
     "casino-interlaken": "https://www.casino-interlaken.ch/favicon.ico",
-    "casino-locarno": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0MDAgMTgwIj48cmVjdCB3aWR0aD0iNDAwIiBoZWlnaHQ9IjE4MCIgcng9IjEyIiBmaWxsPSIjMTAyNDNhIi8+PGcgc3Ryb2tlPSIjZjBjMzNiIiBzdHJva2Utd2lkdGg9IjEyIiBmaWxsPSJub25lIiBzdHJva2UtbGluZWNhcD0icm91bmQiPjxwYXRoIGQ9Ik0xNjUgMzhjMjgtMjUgNjYtMTAgNTkgMTgtNyAyOC00NyAxOC01MCA0Mi0zIDIyIDI1IDMxIDUzIDE4Ii8+PC9nPjx0ZXh0IHg9IjIwMCIgeT0iMTE4IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZjBjMzNiIiBmb250LWZhbWlseT0iQXJpYWwsc2Fucy1zZXJpZiIgZm9udC1zaXplPSI0OCIgbGV0dGVyLXNwYWNpbmc9IjIiPkNBU0lOTzwvdGV4dD48dGV4dCB4PSIyMDAiIHk9IjE1NCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iI2ZmZiIgZm9udC1mYW1pbHk9IkFyaWFsLHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMjUiIGxldHRlci1zcGFjaW5nPSIzIj5MT0NBUk5PPC90ZXh0Pjwvc3ZnPg==",
     "casino-lugano": "https://www.casinolugano.ch/favicon.ico",
     "casino-luzern": "https://www.lucerne-business.com/company/logo/Grand%20Casino%20Luzern%20AG.png",
     "casino-mendrisio": "https://hcap.ch/uploads/sponsor/Logo_Admiral_Mendrisio_50_x_20_cm-1.png",
     "casino-meyrin": "https://www.pasino.ch/favicon.ico",
     "casino-montreux": "https://www.casinosbarriere.com/favicon.ico",
-    "casino-neuenburg": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0MDAgMTgwIj48cmVjdCB3aWR0aD0iNDAwIiBoZWlnaHQ9IjE4MCIgcng9IjEyIiBmaWxsPSIjMGIxMDIwIi8+PHRleHQgeD0iMjAwIiB5PSI4NiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iI2ZmZiIgZm9udC1mYW1pbHk9IkFyaWFhbCxzYW5zLXNlcmlmIiBmb250LXdlaWdodD0iNzAwIiBmb250LXNpemU9IjQzIiBsZXR0ZXItc3BhY2luZz0iMSI+Q0FTSU5PPC90ZXh0Pjx0ZXh0IHg9IjIwMCIgeT0iMTI4IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIiBmb250LWZhbWlseT0iQXJpYWws c2Fucy1zZXJpZiIgZm9udC13ZWlnaHQ9IjcwMCIgZm9udC1zaXplPSIzNSI+TkVVQ0jDglRFTDwvdGV4dD48L3N2Zz4==",
-    "casino-pfaeffikon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2MDAgMTcwIj48ZyBmaWxsPSJub25lIiBzdHJva2U9IiNmNGJkMTYiIHN0cm9rZS13aWR0aD0iMTUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCI+PHBhdGggZD0iTTQ1IDQ1YzMwLTMwIDczLTI3IDkyIDEiLz48cGF0aCBkPSJNNDIgNzNjMzUtMzAgODAtMjUgMTAwIDUiLz48cGF0aCBkPSJNNDIgMTAyYzM2LTI4IDgyLTIwIDk5IDkiLz48L2c+PGNpcmNsZSBjeD0iMTA3IiBjeT0iMzgiIHI9IjEwIiBmaWxsPSIjZjRiZDE2Ii8+PHRleHQgeD0iMTc1IiB5PSI4MiIgZmlsbD0iIzExMSIgZm9udC1mYW1pbHk9IkFyaWFsLHNhbnMtc2VyaWYiIGZvbnQtd2VpZ2h0PSI3MDAiIGZvbnQtc2l6ZT0iNDIiPlNXSVNTIENBU0lOTzwvdGV4dD48dGV4dCB4PSIxNzUiIHk9IjEyNSIgZmlsbD0iIzExMSIgZm9udC1mYW1pbHk9IkFyaWFsLHNhbnMtc2VyaWYiIGZvbnQtd2VpZ2h0PSIzNiI+UEZBRSZFTU5OSUtPTjwvdGV4dD48L3N2Zz4=",
     "casino-prilly": "https://grandcasinoprilly.com/wp-content/uploads/2026/09/Grand-casino-prilly-logo-scaled.png",
     "casino-st-gallen": "https://www.swisscasinos.ch/favicon.ico",
     "casino-winterthur": "https://www.swisscasinos.ch/sites/default/files/2025-10/Swiss_Casino_Casino_Winterthur_1farbig_black_zentriert.png",
-    "casino-zuerich": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MjAgMTcwIj48ZyBmaWxsPSJub25lIiBzdHJva2U9IiNmNGJkMTYiIHN0cm9rZS13aWR0aD0iMTUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCI+PHBhdGggZD0iTTQ1IDQ1YzMwLTMwIDczLTI3IDkyIDEiLz48cGF0aCBkPSJNNDIgNzNjMzUtMzAgODAtMjUgMTAwIDUiLz48cGF0aCBkPSJNNDIgMTAyYzM2LTI4IDgyLTIwIDk5IDkiLz48L2c+PGNpcmNsZSBjeD0iMTA3IiBjeT0iMzgiIHI9IjEwIiBmaWxsPSIjZjRiZDE2Ii8+PHRleHQgeD0iMTc1IiB5PSI4MiIgZmlsbD0iIzExMSIgZm9udC1mYW1pbHk9IkFyaWFsLHNhbnMtc2VyaWYiIGZvbnQtd2VpZ2h0PSI0MiI+U1dJU1MgQ0FTSU5PPC90ZXh0Pjx0ZXh0IHg9IjE3NSIgeT0iMTI1IiBmaWxsPSIjMTExIiBmb250LWZhbWlseT0iQXJpYWwsc2Fucy1zZXJpZiIgZm9udC13ZWlnaHQ9IjQyIiBmb250LXNpemU9IjM2Ij5aX4hSSUNIPC90ZXh0Pjwvc3ZnPg==",
+}
+
+INLINE_LOGOS = {
+    "casino-locarno": """<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 180"><rect width="400" height="180" rx="12" fill="#10243a"/><g fill="none" stroke="#f0c33b" stroke-width="12" stroke-linecap="round"><path d="M165 38c28-25 66-10 59 18-7 28-47 18-50 42-3 22 25 31 53 18"/></g><text x="200" y="118" text-anchor="middle" fill="#f0c33b" font-family="Arial,sans-serif" font-size="48" letter-spacing="2">CASINO</text><text x="200" y="154" text-anchor="middle" fill="#fff" font-family="Arial,sans-serif" font-size="25" letter-spacing="3">LOCARNO</text></svg>""",
+    "casino-neuenburg": """<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 180"><rect width="400" height="180" rx="12" fill="#0b1020"/><text x="200" y="86" text-anchor="middle" fill="#fff" font-family="Arial,sans-serif" font-weight="700" font-size="43" letter-spacing="1">CASINO</text><text x="200" y="128" text-anchor="middle" fill="#fff" font-family="Arial,sans-serif" font-weight="700" font-size="35" letter-spacing="1">NEUCHÂTEL</text></svg>""",
+    "casino-pfaeffikon": """<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 170"><g fill="none" stroke="#f4bd16" stroke-width="15" stroke-linecap="round"><path d="M45 45c30-30 73-27 92 1"/><path d="M42 73c35-30 80-25 100 5"/><path d="M42 102c36-28 82-20 99 9"/></g><circle cx="107" cy="38" r="10" fill="#f4bd16"/><text x="175" y="82" fill="#111" font-family="Arial,sans-serif" font-weight="700" font-size="42">SWISS CASINO</text><text x="175" y="125" fill="#111" font-family="Arial,sans-serif" font-weight="700" font-size="36">PFÄFFIKON</text></svg>""",
+    "casino-zuerich": """<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 170"><g fill="none" stroke="#f4bd16" stroke-width="15" stroke-linecap="round"><path d="M45 45c30-30 73-27 92 1"/><path d="M42 73c35-30 80-25 100 5"/><path d="M42 102c36-28 82-20 99 9"/></g><circle cx="107" cy="38" r="10" fill="#f4bd16"/><text x="175" y="82" fill="#111" font-family="Arial,sans-serif" font-weight="700" font-size="42">SWISS CASINO</text><text x="175" y="125" fill="#111" font-family="Arial,sans-serif" font-weight="700" font-size="36">ZÜRICH</text></svg>""",
 }
 
 def favicon(url):
@@ -54,6 +59,9 @@ def favicon(url):
     return f"https://www.google.com/s2/favicons?domain={host}&sz=128" if host else ""
 
 def provider_logo(provider_id, source_url):
+    if provider_id in INLINE_LOGOS:
+        encoded = base64.b64encode(INLINE_LOGOS[provider_id].encode("utf-8")).decode("ascii")
+        return "data:image/svg+xml;base64," + encoded
     return PROVIDER_LOGOS.get(provider_id) or favicon(source_url)
 
 def initials(name):
