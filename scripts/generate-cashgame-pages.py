@@ -24,6 +24,10 @@ def domain(url):
     return (urlparse(url).hostname or "").removeprefix("www.")
 
 PROVIDER_LOGOS = {
+    "casino-bad-ragaz": "https://www.casinoragaz.ch/favicon.ico",
+    "casino-bern": "https://www.grandcasino-bern.ch/favicon.ico",
+    "casino-crans-montana": "https://www.casinocransmontana.ch/favicon.ico",
+
     "casino-luzern": "https://hrfestival.ch/wp-content/uploads/2025/11/logo_gcl_schwarz_gold_rgb.png",
     "casino-granges-paccot": "https://jeux-gratuits-fr.casino/wp-content/uploads/2020/05/casino-barriere-fribourg-logo.jpg",
     "casino-courrendlin": "https://cadeaux.lqj.ch/cdn/shop/files/Casino_26d56023-2212-45be-bb5c-22b836771d4e.jpg?v=1763623753",
