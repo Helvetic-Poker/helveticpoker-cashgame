@@ -59,7 +59,7 @@ def shell(title, description, body, canonical):
 <meta property="og:site_name" content="Helvetic Poker">
 <style>
 *{{box-sizing:border-box}}
-body{{margin:0;background:#f4f6f8;color:#13263a;font-family:Arial,Helvetica,sans-serif}}
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap");\nbody{{margin:0;background:#f3f5f7;color:#13263a;font-family:Montserrat,Arial,sans-serif}}
 a{{color:inherit}}
 header{{height:88px;background:linear-gradient(100deg,#0c1b27,#143244);color:#fff;position:sticky;top:0;z-index:20;box-shadow:0 2px 8px #00101825;border-top:4px solid #e21b35}}
 .nav{{max-width:1180px;height:100%;margin:auto;padding:0 18px;display:flex;align-items:center;gap:28px}}
@@ -73,7 +73,7 @@ header{{height:88px;background:linear-gradient(100deg,#0c1b27,#143244);color:#ff
 main{{max-width:1120px;margin:auto;padding:26px 18px 55px}}
 .crumb{{font-size:13px;color:#687580;margin-bottom:14px}}
 .hero{{background:#fff;border:1px solid #dfe5ea;border-radius:16px;padding:30px;box-shadow:0 8px 24px #10223810}}
-h1{{margin:0;font-size:clamp(34px,5vw,52px);line-height:1.05}}
+h1{{margin:0;font-size:clamp(38px,6vw,60px);line-height:1.05}}
 h2{{font-size:25px;margin:30px 0 12px}}
 .lead{{color:#5e6b78;font-size:17px;max-width:850px;margin:14px 0 0}}
 .stats{{display:flex;gap:8px;margin-top:18px;flex-wrap:wrap}}
@@ -108,7 +108,7 @@ footer{{max-width:1120px;margin:auto;padding:25px 18px;color:#71808d;font-size:1
 </style>
 </head>
 <body>
-<header><div class="nav"><a href="{BASE}/"><img class="logo" src="{LOGO}" alt="Helvetic Poker"></a><nav class="links"><a href="{BASE}/">Cash Games</a><a href="{TOURNAMENTS}">Pokerturniere</a><a href="{BASE}/#casinos">Casinos</a></nav></div></header>
+<header><div class="nav"><a class="brand" href="https://www.helveticpoker.ch/" target="_blank" rel="noopener"><img class="brandLogo" src="{LOGO}" alt="Helvetic Poker"></a><button class="menuBtn" id="menuBtn" aria-label="Menü öffnen" aria-expanded="false">☰</button><nav class="links" id="mobileNav"><a href="https://www.helveticpoker.ch/blog" target="_blank" rel="noopener">News</a><a href="{TOURNAMENTS}">Pokerturniere</a><a class="active" href="{BASE}/">Cash Games</a><a href="https://www.helveticpoker.ch/pokerclubs-schweiz" target="_blank" rel="noopener">Poker Rooms Schweiz</a><a href="https://www.helveticpoker.ch/anbieter" target="_blank" rel="noopener">Online-Anbieter</a><a href="https://www.helveticpoker.ch/recht-sicherheit" target="_blank" rel="noopener">Recht &amp; Sicherheit</a></nav></div></header>
 <main>{body}</main>
 <footer>Helvetic Poker · <a href="{TOURNAMENTS}" style="color:inherit">Pokerturniere Schweiz</a> · <a href="{BASE}/" style="color:inherit">Cash Games Schweiz</a> · Offizielle Quellen · tägliche Quellenprüfung.</footer>
 <script>const menuBtn=document.getElementById("menuBtn"),mobileNav=document.getElementById("mobileNav");if(menuBtn&&mobileNav){menuBtn.onclick=()=>{const open=mobileNav.classList.toggle("open");menuBtn.setAttribute("aria-expanded",open?"true":"false");menuBtn.textContent=open?"×":"☰"};mobileNav.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>{mobileNav.classList.remove("open");menuBtn.setAttribute("aria-expanded","false");menuBtn.textContent="☰"}));}</script>
