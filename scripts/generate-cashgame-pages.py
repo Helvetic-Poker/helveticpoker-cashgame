@@ -34,7 +34,7 @@ PROVIDER_LOGOS = {
     "casino-crans-montana": "https://www.casino-crans-montana.ch/favicon.ico",
     "casino-davos": "https://www.casinodavos.ch/wp-content/uploads/2025/03/cda-logo-circle-2-150x150.jpg",
     "casino-granges-paccot": "https://www.casinosbarriere.com/favicon.ico",
-    "casino-interlaken": "https://seeklogo.com/vector-logo/507421/casino-interlaken",
+    "casino-interlaken": "https://www.casino-interlaken.ch/favicon.ico",
     "casino-locarno": "https://www.casinolocarno.ch/favicon.ico",
     "casino-lugano": "https://www.casinolugano.ch/favicon.ico",
     "casino-luzern": "https://www.lucerne-business.com/company/logo/Grand%20Casino%20Luzern%20AG.png",
