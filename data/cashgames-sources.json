@@ -1,6 +1,6 @@
 [
   {"id":"casino-baden","name":"Grand Casino Baden","city":"Baden","canton":"AG","source_url":"https://www.grandcasinobaden.ch/","enabled":true},
-  {"id":"casino-bad-ragaz","name":"Casino Bad Ragaz","city":"Bad Ragaz","canton":"SG","source_url":"https://www.casino-badragaz.ch/","enabled":true},
+  {"id":"casino-bad-ragaz","name":"Casino Bad Ragaz","city":"Bad Ragaz","canton":"SG","source_url":"https://www.casinoragaz.ch/","enabled":true},
   {"id":"casino-basel","name":"Grand Casino Basel","city":"Basel","canton":"BS","source_url":"https://www.grandcasinobasel.com/","enabled":true},
   {"id":"casino-bern","name":"Grand Casino Bern","city":"Bern","canton":"BE","source_url":"https://www.grandcasino-bern.ch/","enabled":true},
   {"id":"casino-courrendlin","name":"Casino Barrière Courrendlin","city":"Courrendlin","canton":"JU","source_url":"https://www.casinosbarriere.com/courrendlin","enabled":true},
