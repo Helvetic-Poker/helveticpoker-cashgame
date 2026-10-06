@@ -24,15 +24,29 @@ def domain(url):
     return (urlparse(url).hostname or "").removeprefix("www.")
 
 PROVIDER_LOGOS = {
+    # Verified logo assets / official site favicons only. Do not use unrelated
+    # sponsor, voucher-shop or logo-aggregator images as casino logos.
+    "casino-baden": "https://www.grandcasinobaden.ch/favicon.ico",
     "casino-bad-ragaz": "https://www.casinoragaz.ch/favicon.ico",
-    "casino-bern": "https://www.grandcasino-bern.ch/favicon.ico",
-    "casino-crans-montana": "https://www.casinocransmontana.ch/favicon.ico",
-
-    "casino-luzern": "https://hrfestival.ch/wp-content/uploads/2025/11/logo_gcl_schwarz_gold_rgb.png",
-    "casino-granges-paccot": "https://jeux-gratuits-fr.casino/wp-content/uploads/2020/05/casino-barriere-fribourg-logo.jpg",
-    "casino-courrendlin": "https://cadeaux.lqj.ch/cdn/shop/files/Casino_26d56023-2212-45be-bb5c-22b836771d4e.jpg?v=1763623753",
-    "casino-lugano": "https://cdn.freebiesupply.com/logos/large/2x/casino-lugano-logo-png-transparent.png",
-    "casino-mendrisio": "https://hcap.ch/uploads/sponsor/Logo_Admiral_Mendrisio_50_x_20_cm-1.png",
+    "casino-basel": "https://media.jobs.ch/media/cfcf4c22-f90e-4525-a202-85ed807c5e53",
+    "casino-bern": "https://media.jobs.ch/images/a9efa51a-1c0e-4e26-94b7-018547a987b9/3379x1734.png",
+    "casino-courrendlin": "https://www.casinosbarriere.com/favicon.ico",
+    "casino-crans-montana": "https://www.casino-crans-montana.ch/favicon.ico",
+    "casino-davos": "https://www.casinodavos.ch/wp-content/uploads/2025/03/cda-logo-circle-2-150x150.jpg",
+    "casino-granges-paccot": "https://www.casinosbarriere.com/favicon.ico",
+    "casino-interlaken": "https://seeklogo.com/vector-logo/507421/casino-interlaken",
+    "casino-locarno": "https://www.casinolocarno.ch/favicon.ico",
+    "casino-lugano": "https://www.casinolugano.ch/favicon.ico",
+    "casino-luzern": "https://www.lucerne-business.com/company/logo/Grand%20Casino%20Luzern%20AG.png",
+    "casino-mendrisio": "https://www.admiral.ch/favicon.ico",
+    "casino-meyrin": "https://www.pasino.ch/favicon.ico",
+    "casino-montreux": "https://www.casinosbarriere.com/favicon.ico",
+    "casino-neuenburg": "https://www.casino-neuchatel.ch/favicon.ico",
+    "casino-pfaeffikon": "https://www.swisscasinos.ch/favicon.ico",
+    "casino-prilly": "https://grandcasinoprilly.com/wp-content/uploads/2026/09/Grand-casino-prilly-logo-scaled.png",
+    "casino-st-gallen": "https://www.swisscasinos.ch/favicon.ico",
+    "casino-winterthur": "https://www.swisscasinos.ch/sites/default/files/2025-10/Swiss_Casino_Casino_Winterthur_1farbig_black_zentriert.png",
+    "casino-zuerich": "https://www.swisscasinos.ch/favicon.ico",
 }
 
 def favicon(url):
@@ -105,14 +119,18 @@ a.source{{display:inline-block;margin-top:10px;color:#d21935;font-weight:800;tex
 .casino-card .provider-logo{{width:42px;height:42px}}
 .notice{{background:#fff;border:1px solid #dfe5ea;border-radius:14px;padding:20px;margin-top:14px}}
 footer{{max-width:1180px;margin:auto;padding:25px 18px;color:#71808d;font-size:13px}}
-@media(max-width:850px){{.grid{{grid-template-columns:repeat(2,minmax(0,1fr))}}}}
-@media(max-width:650px){{.links{{display:none}}main{{padding:20px 10px}}.hero{{padding:24px 20px}}.grid{{grid-template-columns:1fr}}}}
-@media(max-width:1100px){.links{display:none}.menuBtn{display:block}}
-@media(max-width:720px){header{height:64px}.nav{padding:0 12px;gap:12px}.menuBtn{display:block}.links.open{display:flex;position:absolute;top:64px;left:10px;right:10px;margin:0;padding:8px;background:#102b3b;border:1px solid #ffffff18;border-radius:0 0 10px 10px;flex-direction:column;gap:0;box-shadow:0 10px 24px #00101835}.links.open a{padding:12px 10px}.links a.active:after{display:none}}
+@media(max-width:1100px){.links{display:none}.menuBtn{display:block}.panel{margin:-12px 14px 0}}
+@media(max-width:850px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:720px){
+header{height:64px}.nav{padding:0 12px;gap:12px}.menuBtn{display:block}
+.links.open{display:flex;position:absolute;top:64px;left:10px;right:10px;margin:0;padding:8px;background:#102b3b;border:1px solid #ffffff18;border-radius:0 0 12px 12px;box-shadow:0 8px 18px #00101830;flex-direction:column;gap:0;z-index:30}
+.links.open a{padding:14px 12px;font-size:13px;border-bottom:1px solid #ffffff12}.links.open a:last-child{border-bottom:0}.links.open a.active:after{display:none}
+.brandLogo{width:58px;height:58px}main{padding:20px 10px}.hero{padding:24px 20px}.grid{grid-template-columns:1fr}
+}
 </style>
 </head>
 <body>
-<header><div class="nav"><a class="brand" href="https://www.helveticpoker.ch/" target="_blank" rel="noopener"><img class="brandLogo" src="{LOGO}" alt="Helvetic Poker"></a><button class="menuBtn" id="menuBtn" aria-label="Menü öffnen" aria-expanded="false">☰</button><nav class="links" id="mobileNav"><a href="https://www.helveticpoker.ch/blog" target="_blank" rel="noopener">News</a><a href="{TOURNAMENTS}">Pokerturniere</a><a class="active" href="{BASE}/">Cash Games</a><a href="https://www.helveticpoker.ch/pokerclubs-schweiz" target="_blank" rel="noopener">Poker Rooms Schweiz</a><a href="https://www.helveticpoker.ch/anbieter" target="_blank" rel="noopener">Online-Anbieter</a><a href="https://www.helveticpoker.ch/recht-sicherheit" target="_blank" rel="noopener">Recht &amp; Sicherheit</a></nav></div></header>
+<div class="top"></div><header><div class="nav"><a class="brand" href="https://www.helveticpoker.ch/" target="_blank" rel="noopener"><img class="brandLogo" src="{LOGO}" alt="Helvetic Poker"></a><button class="menuBtn" id="menuBtn" aria-label="Menü öffnen" aria-expanded="false">☰</button><nav class="links" id="mobileNav"><a href="https://www.helveticpoker.ch/blog" target="_blank" rel="noopener">News</a><a href="{TOURNAMENTS}">Pokerturniere</a><a class="active" href="{BASE}/">Cash Games</a><a href="https://www.helveticpoker.ch/pokerclubs-schweiz" target="_blank" rel="noopener">Poker Rooms Schweiz</a><a href="https://www.helveticpoker.ch/anbieter" target="_blank" rel="noopener">Online-Anbieter</a><a href="https://www.helveticpoker.ch/recht-sicherheit" target="_blank" rel="noopener">Recht &amp; Sicherheit</a></nav></div></header>
 <main>{body}</main>
 <footer>Helvetic Poker · <a href="{TOURNAMENTS}" style="color:inherit">Pokerturniere Schweiz</a> · <a href="{BASE}/" style="color:inherit">Cash Games Schweiz</a> · Offizielle Quellen · tägliche Quellenprüfung.</footer>
 <script>const menuBtn=document.getElementById("menuBtn"),mobileNav=document.getElementById("mobileNav");if(menuBtn&&mobileNav){menuBtn.onclick=()=>{const open=mobileNav.classList.toggle("open");menuBtn.setAttribute("aria-expanded",open?"true":"false");menuBtn.textContent=open?"×":"☰"};mobileNav.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>{mobileNav.classList.remove("open");menuBtn.setAttribute("aria-expanded","false");menuBtn.textContent="☰"}));}</script>
