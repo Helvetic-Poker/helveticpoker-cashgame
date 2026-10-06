@@ -100,8 +100,8 @@ h2{{font-size:25px;margin:30px 0 12px}}
 .stat span{{font-size:11px;color:#6c7884}}
 .grid{{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:14px}}
 .card{{background:#fff;border:1px solid #dfe5ea;border-radius:14px;overflow:hidden;box-shadow:0 3px 12px #10223808}}
-.card-top{{display:flex;align-items:center;gap:12px;padding:15px 15px 10px}}
-.provider-logo{{width:46px;height:46px;border-radius:10px;object-fit:contain;border:1px solid #e3e8ed;background:#fff;padding:5px}}
+.card-top{{display:flex;align-items:center;gap:14px;padding:15px 15px 10px}}
+.provider-logo{{width:58px;height:58px;min-width:58px;box-sizing:border-box;display:block;border-radius:10px;object-fit:contain;object-position:center;border:1px solid #e3e8ed;background:#fff;padding:7px}}
 .provider-logo-fallback{{display:flex;align-items:center;justify-content:center;background:#f0f2f5;color:#26394a;font-size:13px;font-weight:800}}
 .provider-name{{font-size:13px;font-weight:800;line-height:1.2}}
 .provider-city{{font-size:11px;color:#71808d;margin-top:3px}}
@@ -116,7 +116,7 @@ h2{{font-size:25px;margin:30px 0 12px}}
 .pill{{display:inline-block;border-radius:999px;padding:5px 9px;background:#eaf5ed;font-size:11px;font-weight:800;margin-top:12px}}
 a.source{{display:inline-block;margin-top:10px;color:#d21935;font-weight:800;text-decoration:none;font-size:12px}}
 .casino-card{{display:flex;align-items:center;gap:13px;padding:15px}}
-.casino-card .provider-logo{{width:42px;height:42px}}
+.casino-card .provider-logo{{width:58px;height:58px;min-width:58px}}
 .notice{{background:#fff;border:1px solid #dfe5ea;border-radius:14px;padding:20px;margin-top:14px}}
 footer{{max-width:1180px;margin:auto;padding:25px 18px;color:#71808d;font-size:13px}}
 @media(max-width:1100px){{.links{{display:none}}.menuBtn{{display:block}}}}
