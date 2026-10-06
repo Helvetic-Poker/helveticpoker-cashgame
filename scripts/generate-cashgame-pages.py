@@ -119,14 +119,14 @@ a.source{{display:inline-block;margin-top:10px;color:#d21935;font-weight:800;tex
 .casino-card .provider-logo{{width:42px;height:42px}}
 .notice{{background:#fff;border:1px solid #dfe5ea;border-radius:14px;padding:20px;margin-top:14px}}
 footer{{max-width:1180px;margin:auto;padding:25px 18px;color:#71808d;font-size:13px}}
-@media(max-width:1100px){.links{display:none}.menuBtn{display:block}.panel{margin:-12px 14px 0}}
-@media(max-width:850px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media(max-width:720px){
-header{height:64px}.nav{padding:0 12px;gap:12px}.menuBtn{display:block}
-.links.open{display:flex;position:absolute;top:64px;left:10px;right:10px;margin:0;padding:8px;background:#102b3b;border:1px solid #ffffff18;border-radius:0 0 12px 12px;box-shadow:0 8px 18px #00101830;flex-direction:column;gap:0;z-index:30}
-.links.open a{padding:14px 12px;font-size:13px;border-bottom:1px solid #ffffff12}.links.open a:last-child{border-bottom:0}.links.open a.active:after{display:none}
-.brandLogo{width:58px;height:58px}main{padding:20px 10px}.hero{padding:24px 20px}.grid{grid-template-columns:1fr}
-}
+@media(max-width:1100px){{.links{{display:none}}.menuBtn{{display:block}}}}
+@media(max-width:850px){{.grid{{grid-template-columns:repeat(2,minmax(0,1fr))}}}}
+@media(max-width:720px){{
+header{{height:64px}}.nav{{padding:0 12px;gap:12px}}.menuBtn{{display:block}}
+.links.open{{display:flex;position:absolute;top:64px;left:10px;right:10px;margin:0;padding:8px;background:#102b3b;border:1px solid #ffffff18;border-radius:0 0 12px 12px;box-shadow:0 8px 18px #00101830;flex-direction:column;gap:0;z-index:30}}
+.links.open a{{padding:14px 12px;font-size:13px;border-bottom:1px solid #ffffff12}}.links.open a:last-child{{border-bottom:0}}.links.open a.active:after{{display:none}}
+.brandLogo{{width:58px;height:58px}}main{{padding:20px 10px}}.hero{{padding:24px 20px}}.grid{{grid-template-columns:1fr}}
+}}
 </style>
 </head>
 <body>
