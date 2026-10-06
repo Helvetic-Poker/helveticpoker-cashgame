@@ -63,9 +63,9 @@ def shell(title, description, body, canonical):
 <meta property="og:site_name" content="Helvetic Poker">
 <style>
 *{{box-sizing:border-box}}
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap");\nbody{{margin:0;background:#f3f5f7;color:#13263a;font-family:Montserrat,Arial,sans-serif}}
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap");\nhtml{{font-family:Montserrat,Arial,sans-serif}}body{{font-family:Montserrat,Arial,sans-serif;-webkit-font-smoothing:antialiased;text-rendering:geometricPrecision}}\n:root{{--nav:#0c1b27;--nav2:#143244;--red:#e21b35;--red2:#ff4055;--ink:#13263a;--muted:#6f7c8b;--line:#dfe5ea;--bg:#f3f5f7;--green:#16884b;--max:1180px}}\nbody{{margin:0;background:var(--bg);color:var(--ink);font-family:Montserrat,system-ui,sans-serif}}
 a{{color:inherit}}
-header{{height:88px;background:linear-gradient(100deg,#0c1b27,#143244);color:#fff;position:sticky;top:0;z-index:20;box-shadow:0 2px 8px #00101825;border-top:4px solid #e21b35}}
+.top{{height:4px;background:var(--red)}}\nheader{{height:88px;background:linear-gradient(100deg,var(--nav),var(--nav2));color:#fff;position:sticky;top:0;z-index:20;box-shadow:0 2px 8px #00101825}}
 .nav{{max-width:1180px;height:100%;margin:auto;padding:0 18px;display:flex;align-items:center;gap:28px}}
 .brand{{display:flex;align-items:center;text-decoration:none;min-width:92px}}
 .brandLogo{{display:block;width:82px;height:82px;object-fit:contain;background:transparent;border:0;border-radius:0;padding:0}}
@@ -76,8 +76,8 @@ header{{height:88px;background:linear-gradient(100deg,#0c1b27,#143244);color:#ff
 .menuBtn{{display:none;margin-left:auto;width:44px;height:44px;border:1px solid #ffffff35;border-radius:9px;background:#ffffff10;color:#fff;font-size:25px;line-height:1;cursor:pointer}}
 main{{max-width:1120px;margin:auto;padding:26px 18px 55px}}
 .crumb{{font-size:13px;color:#687580;margin-bottom:14px}}
-.hero{{background:#fff;border:1px solid #dfe5ea;border-radius:16px;padding:30px;box-shadow:0 8px 24px #10223810}}
-h1{{margin:0;font-size:clamp(38px,6vw,60px);line-height:1.05}}
+.hero{{color:#13263a;background:#fff;border:1px solid #dfe5ea;border-radius:16px;padding:30px;box-shadow:0 8px 24px #10223810}}
+h1{{margin:0;font-size:clamp(38px,6vw,60px);line-height:1;margin:0 0 9px;letter-spacing:-.045em;font-weight:600}}
 h2{{font-size:25px;margin:30px 0 12px}}
 .lead{{color:#5e6b78;font-size:17px;max-width:850px;margin:14px 0 0}}
 .stats{{display:flex;gap:8px;margin-top:18px;flex-wrap:wrap}}
@@ -104,7 +104,7 @@ a.source{{display:inline-block;margin-top:10px;color:#d21935;font-weight:800;tex
 .casino-card{{display:flex;align-items:center;gap:13px;padding:15px}}
 .casino-card .provider-logo{{width:42px;height:42px}}
 .notice{{background:#fff;border:1px solid #dfe5ea;border-radius:14px;padding:20px;margin-top:14px}}
-footer{{max-width:1120px;margin:auto;padding:25px 18px;color:#71808d;font-size:13px}}
+footer{{max-width:1180px;margin:auto;padding:25px 18px;color:#71808d;font-size:13px}}
 @media(max-width:850px){{.grid{{grid-template-columns:repeat(2,minmax(0,1fr))}}}}
 @media(max-width:650px){{.links{{display:none}}main{{padding:20px 10px}}.hero{{padding:24px 20px}}.grid{{grid-template-columns:1fr}}}}
 @media(max-width:1100px){.links{display:none}.menuBtn{display:block}}
