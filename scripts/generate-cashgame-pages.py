@@ -8,7 +8,7 @@ ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data"
 OUT = ROOT / "public"
 BASE = "https://cashgame.helveticpoker.ch"
-LOGO = f"{BASE}/assets/helvetic-poker-logo.png"
+LOGO = "https://pokerturniere.helveticpoker.ch/assets/helvetic-poker-logo.png?v=7"
 TOURNAMENTS = "https://pokerturniere.helveticpoker.ch/"
 
 sources = json.loads((DATA / "cashgames-sources.json").read_text(encoding="utf-8"))
