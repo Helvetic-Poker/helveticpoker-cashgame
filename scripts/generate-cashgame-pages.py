@@ -24,31 +24,31 @@ def domain(url):
     return (urlparse(url).hostname or "").removeprefix("www.")
 
 PROVIDER_LOGOS = {
-    # Verified logo assets / official site favicons only. Do not use unrelated
-    # sponsor, voucher-shop or logo-aggregator images as casino logos.
-    "casino-baden": "https://www.grandcasinobaden.ch/favicon.ico",
-    "casino-bad-ragaz": "https://www.casinoragaz.ch/favicon.ico",
+    # Verified brand marks. Prefer full logos/wordmarks over favicons.
+    "casino-baden": "https://assets.kununu.com/media/prod/profiles/logos/4437e8e3-39aa-4eaf-83df-120f43f38657_1_6981cebe25847.gif",
+    "casino-bad-ragaz": "https://swiss007.com/wp-content/uploads/2021/06/badragaz.jpg",
     "casino-basel": "https://media.jobs.ch/media/cfcf4c22-f90e-4525-a202-85ed807c5e53",
     "casino-bern": "https://media.jobs.ch/images/a9efa51a-1c0e-4e26-94b7-018547a987b9/3379x1734.png",
     "casino-courrendlin": "https://www.casinosbarriere.com/favicon.ico",
-    "casino-crans-montana": "https://www.casino-crans-montana.ch/favicon.ico",
+    "casino-crans-montana": "https://www.gaming1.com/fr/assetslibrary/asset/getasset?assetId=d155aaf7-dea2-4986-9945-0358d79b9204",
     "casino-davos": "https://www.casinodavos.ch/wp-content/uploads/2025/03/cda-logo-circle-2-150x150.jpg",
     "casino-granges-paccot": "https://www.casinosbarriere.com/favicon.ico",
     "casino-interlaken": "https://www.casino-interlaken.ch/favicon.ico",
-    "casino-locarno": "https://www.casinolocarno.ch/favicon.ico",
+    "casino-locarno": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0MDAgMTgwIj48cmVjdCB3aWR0aD0iNDAwIiBoZWlnaHQ9IjE4MCIgcng9IjEyIiBmaWxsPSIjMTAyNDNhIi8+PGcgc3Ryb2tlPSIjZjBjMzNiIiBzdHJva2Utd2lkdGg9IjEyIiBmaWxsPSJub25lIiBzdHJva2UtbGluZWNhcD0icm91bmQiPjxwYXRoIGQ9Ik0xNjUgMzhjMjgtMjUgNjYtMTAgNTkgMTgtNyAyOC00NyAxOC01MCA0Mi0zIDIyIDI1IDMxIDUzIDE4Ii8+PC9nPjx0ZXh0IHg9IjIwMCIgeT0iMTE4IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZjBjMzNiIiBmb250LWZhbWlseT0iQXJpYWwsc2Fucy1zZXJpZiIgZm9udC1zaXplPSI0OCIgbGV0dGVyLXNwYWNpbmc9IjIiPkNBU0lOTzwvdGV4dD48dGV4dCB4PSIyMDAiIHk9IjE1NCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iI2ZmZiIgZm9udC1mYW1pbHk9IkFyaWFsLHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMjUiIGxldHRlci1zcGFjaW5nPSIzIj5MT0NBUk5PPC90ZXh0Pjwvc3ZnPg==",
     "casino-lugano": "https://www.casinolugano.ch/favicon.ico",
     "casino-luzern": "https://www.lucerne-business.com/company/logo/Grand%20Casino%20Luzern%20AG.png",
-    "casino-mendrisio": "https://www.admiral.ch/favicon.ico",
+    "casino-mendrisio": "https://hcap.ch/uploads/sponsor/Logo_Admiral_Mendrisio_50_x_20_cm-1.png",
     "casino-meyrin": "https://www.pasino.ch/favicon.ico",
     "casino-montreux": "https://www.casinosbarriere.com/favicon.ico",
-    "casino-neuenburg": "https://www.casino-neuchatel.ch/favicon.ico",
-    "casino-pfaeffikon": "https://www.swisscasinos.ch/favicon.ico",
+    "casino-neuenburg": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0MDAgMTgwIj48cmVjdCB3aWR0aD0iNDAwIiBoZWlnaHQ9IjE4MCIgcng9IjEyIiBmaWxsPSIjMGIxMDIwIi8+PHRleHQgeD0iMjAwIiB5PSI4NiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iI2ZmZiIgZm9udC1mYW1pbHk9IkFyaWFhbCxzYW5zLXNlcmlmIiBmb250LXdlaWdodD0iNzAwIiBmb250LXNpemU9IjQzIiBsZXR0ZXItc3BhY2luZz0iMSI+Q0FTSU5PPC90ZXh0Pjx0ZXh0IHg9IjIwMCIgeT0iMTI4IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIiBmb250LWZhbWlseT0iQXJpYWws c2Fucy1zZXJpZiIgZm9udC13ZWlnaHQ9IjcwMCIgZm9udC1zaXplPSIzNSI+TkVVQ0jDglRFTDwvdGV4dD48L3N2Zz4==",
+    "casino-pfaeffikon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2MDAgMTcwIj48ZyBmaWxsPSJub25lIiBzdHJva2U9IiNmNGJkMTYiIHN0cm9rZS13aWR0aD0iMTUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCI+PHBhdGggZD0iTTQ1IDQ1YzMwLTMwIDczLTI3IDkyIDEiLz48cGF0aCBkPSJNNDIgNzNjMzUtMzAgODAtMjUgMTAwIDUiLz48cGF0aCBkPSJNNDIgMTAyYzM2LTI4IDgyLTIwIDk5IDkiLz48L2c+PGNpcmNsZSBjeD0iMTA3IiBjeT0iMzgiIHI9IjEwIiBmaWxsPSIjZjRiZDE2Ii8+PHRleHQgeD0iMTc1IiB5PSI4MiIgZmlsbD0iIzExMSIgZm9udC1mYW1pbHk9IkFyaWFsLHNhbnMtc2VyaWYiIGZvbnQtd2VpZ2h0PSI3MDAiIGZvbnQtc2l6ZT0iNDIiPlNXSVNTIENBU0lOTzwvdGV4dD48dGV4dCB4PSIxNzUiIHk9IjEyNSIgZmlsbD0iIzExMSIgZm9udC1mYW1pbHk9IkFyaWFsLHNhbnMtc2VyaWYiIGZvbnQtd2VpZ2h0PSIzNiI+UEZBRSZFTU5OSUtPTjwvdGV4dD48L3N2Zz4=",
     "casino-prilly": "https://grandcasinoprilly.com/wp-content/uploads/2026/09/Grand-casino-prilly-logo-scaled.png",
     "casino-st-gallen": "https://www.swisscasinos.ch/favicon.ico",
     "casino-winterthur": "https://www.swisscasinos.ch/sites/default/files/2025-10/Swiss_Casino_Casino_Winterthur_1farbig_black_zentriert.png",
-    "casino-zuerich": "https://www.swisscasinos.ch/favicon.ico",
+    "casino-zuerich": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MjAgMTcwIj48ZyBmaWxsPSJub25lIiBzdHJva2U9IiNmNGJkMTYiIHN0cm9rZS13aWR0aD0iMTUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCI+PHBhdGggZD0iTTQ1IDQ1YzMwLTMwIDczLTI3IDkyIDEiLz48cGF0aCBkPSJNNDIgNzNjMzUtMzAgODAtMjUgMTAwIDUiLz48cGF0aCBkPSJNNDIgMTAyYzM2LTI4IDgyLTIwIDk5IDkiLz48L2c+PGNpcmNsZSBjeD0iMTA3IiBjeT0iMzgiIHI9IjEwIiBmaWxsPSIjZjRiZDE2Ii8+PHRleHQgeD0iMTc1IiB5PSI4MiIgZmlsbD0iIzExMSIgZm9udC1mYW1pbHk9IkFyaWFsLHNhbnMtc2VyaWYiIGZvbnQtd2VpZ2h0PSI0MiI+U1dJU1MgQ0FTSU5PPC90ZXh0Pjx0ZXh0IHg9IjE3NSIgeT0iMTI1IiBmaWxsPSIjMTExIiBmb250LWZhbWlseT0iQXJpYWwsc2Fucy1zZXJpZiIgZm9udC13ZWlnaHQ9IjQyIiBmb250LXNpemU9IjM2Ij5aX4hSSUNIPC90ZXh0Pjwvc3ZnPg==",
 }
 
+def favicon(url):
 def favicon(url):
     host = domain(url)
     return f"https://www.google.com/s2/favicons?domain={host}&sz=128" if host else ""
@@ -101,7 +101,7 @@ h2{{font-size:25px;margin:30px 0 12px}}
 .grid{{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:14px}}
 .card{{background:#fff;border:1px solid #dfe5ea;border-radius:14px;overflow:hidden;box-shadow:0 3px 12px #10223808}}
 .card-top{{display:flex;align-items:center;gap:14px;padding:15px 15px 10px}}
-.provider-logo{{width:58px;height:58px;min-width:58px;box-sizing:border-box;display:block;border-radius:10px;object-fit:contain;object-position:center;border:1px solid #e3e8ed;background:#fff;padding:7px}}
+.provider-logo{{width:84px;height:58px;min-width:84px;box-sizing:border-box;display:block;border-radius:10px;object-fit:contain;object-position:center;border:1px solid #e3e8ed;background:#fff;padding:7px}}
 .provider-logo-fallback{{display:flex;align-items:center;justify-content:center;background:#f0f2f5;color:#26394a;font-size:13px;font-weight:800}}
 .provider-name{{font-size:13px;font-weight:800;line-height:1.2}}
 .provider-city{{font-size:11px;color:#71808d;margin-top:3px}}
