@@ -120,7 +120,7 @@ h2{{font-size:25px;margin:30px 0 12px}}
 .pill{{display:inline-block;border-radius:999px;padding:5px 9px;background:#eaf5ed;font-size:11px;font-weight:800;margin-top:12px}}
 a.source{{display:inline-block;margin-top:10px;color:#d21935;font-weight:800;text-decoration:none;font-size:12px}}
 .casino-card{{display:flex;align-items:center;gap:13px;padding:15px}}
-.casino-card .provider-logo{{width:58px;height:58px;min-width:58px}}
+.casino-card .provider-logo{{width:84px;height:58px;min-width:84px}}
 .notice{{background:#fff;border:1px solid #dfe5ea;border-radius:14px;padding:20px;margin-top:14px}}
 footer{{max-width:1180px;margin:auto;padding:25px 18px;color:#71808d;font-size:13px}}
 @media(max-width:1100px){{.links{{display:none}}.menuBtn{{display:block}}}}
