@@ -88,14 +88,15 @@ a{{color:inherit}}
 .nav{{max-width:1180px;height:100%;margin:auto;padding:0 18px;display:flex;align-items:center;gap:28px}}
 .brand{{display:flex;align-items:center;text-decoration:none;min-width:92px}}
 .brandLogo{{display:block;width:82px;height:82px;object-fit:contain;background:transparent;border:0;border-radius:0;padding:0}}
-.links{{display:flex;gap:29px;margin-left:auto;font-size:15px;font-weight:300;letter-spacing:-.015em;text-transform:uppercase}}
-.links a{{text-decoration:none;opacity:.94}}
+.links{{display:flex;gap:29px;margin-left:auto;font-size:15px;font-weight:300;letter-spacing:-.015em;text-transform:uppercase;font-family:Arial,sans-serif}}
+.links a{{text-decoration:none;opacity:.94;font-family:Arial,sans-serif}}
 .links a.active{{position:relative}}
 .links a.active:after{{content:"";position:absolute;left:0;right:0;bottom:-23px;height:3px;background:#ff4055;border-radius:3px}}
 .menuBtn{{display:none;margin-left:auto;width:44px;height:44px;border:1px solid #ffffff35;border-radius:9px;background:#ffffff10;color:#fff;font-size:25px;line-height:1;cursor:pointer}}
 main{{max-width:1120px;margin:auto;padding:26px 18px 55px}}
 .crumb{{font-size:13px;color:#687580;margin-bottom:14px}}
 .hero{{color:#fff;background:linear-gradient(90deg,#071722e8,#12384fb0),linear-gradient(135deg,#6c8ea0,#28556c 50%,#102432);position:relative;overflow:hidden;border:0;border-radius:0;padding:40px 30px 35px;box-shadow:none;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);padding-left:max(30px,calc((100vw - 1100px)/2 + 18px));padding-right:max(30px,calc((100vw - 1100px)/2 + 18px))}}
+.hero:first-child{{margin-top:-26px}}
 h1{{margin:0;font-size:clamp(38px,6vw,60px);line-height:1;margin:0 0 9px;letter-spacing:-.045em;font-weight:600}}
 h2{{font-size:25px;margin:30px 0 12px}}
 .lead{{color:rgba(255,255,255,.88);font-size:17px;max-width:850px;margin:14px 0 0}}
@@ -185,8 +186,7 @@ if verification_file.exists():
 (OUT / "index.html").write_text(shell(
     "Cash Games Schweiz | Helvetic Poker",
     "Aktuelle Poker-Cash-Games in Schweizer Casinos mit Limits, Buy-ins, Spielzeiten und offiziellen Quellen.",
-    f"""<div class="crumb">Helvetic Poker › Cash Games Schweiz</div>
-<section class="hero"><h1>Cash Games Schweiz</h1>
+    f"""<section class="hero"><h1>Cash Games Schweiz</h1>
 <p class="lead">Aktuelle Poker-Cash-Games in Schweizer Casinos – getrennt vom Turnierkalender.</p>
 <div class="stats"><div class="stat"><strong>{len(confirmed)}</strong><span>bestätigte Angebote</span></div><div class="stat"><strong>{len(paused)}</strong><span>pausierte Angebote</span></div><div class="stat"><strong>{len(sources)}</strong><span>geprüfte Anbieter</span></div></div></section>
 <h2>Aktuelle Cash Games</h2>
@@ -198,8 +198,7 @@ if verification_file.exists():
 
 for s in sources:
     sgames = [g for g in games if g.get("provider_id") == s["id"] and g.get("status") == "confirmed"]
-    body = f"""<div class="crumb"><a href="{BASE}/">Cash Games Schweiz</a> › {escape(s["name"])}</div>
-<section class="hero"><div class="card-top" style="padding:0 0 14px">{logo_img(s["name"], s["source_url"], s["id"])}<div><h1 style="font-size:clamp(30px,4vw,46px)">{escape(s["name"])}</h1><p class="lead">{escape(s["city"])} · Kanton {escape(s["canton"])}</p></div></div>
+    body = f"""<section class="hero"><div class="card-top" style="padding:0 0 14px">{logo_img(s["name"], s["source_url"], s["id"])}<div><h1 style="font-size:clamp(30px,4vw,46px)">{escape(s["name"])}</h1><p class="lead">{escape(s["city"])} · Kanton {escape(s["canton"])}</p></div></div>
 <a class="source" href="{escape(s["source_url"])}" rel="noopener" target="_blank">Offizielle Website →</a></section>"""
     if sgames:
         body += '<h2>Bestätigte Cash Games</h2><div class="grid">' + ''.join(card(g) for g in sgames) + '</div>'
