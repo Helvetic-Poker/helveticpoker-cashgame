@@ -1,6 +1,6 @@
 from pathlib import Path
 from html import escape
-from urllib.parse import urlparse
+from urllib.parse import urlparse, quote
 import json
 import re
 
@@ -44,10 +44,13 @@ PROVIDER_LOGOS = {
     "casino-prilly": "https://grandcasinoprilly.com/wp-content/uploads/2026/09/Grand-casino-prilly-logo-scaled.png",
     "casino-st-gallen": "https://www.swisscasinos.ch/favicon.ico",
     "casino-winterthur": "https://www.swisscasinos.ch/sites/default/files/2025-10/Swiss_Casino_Casino_Winterthur_1farbig_black_zentriert.png",
+    "casino-neuenburg": "https://images.ctfassets.net/7q178rxww3yj/5g2NTlUqOZu98CcAZJh6A5/1119ee692730a5dd7e7043226aaaaf97/Card_Casino_Neuchatel.svg",
+    "casino-pfaeffikon": "https://images.ctfassets.net/7q178rxww3yj/69SKrqeaccb23XSuZljdsE/0f61378a52d1784f16fa87af2436d2d9/casinopf%C3%A4ffikon.svg",
+    "casino-zuerich": "https://images.ctfassets.net/7q178rxww3yj/2CRS7Oml9TPqK4zLgkZRlz/61d6f582ee510affaea3fa4731f36ee0/Card_Casino_Zurich.svg",
 }
 
 INLINE_LOGOS = {
-    "casino-locarno": """<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 180"><rect width="400" height="180" rx="12" fill="#10243a"/><g fill="none" stroke="#f0c33b" stroke-width="12" stroke-linecap="round"><path d="M165 38c28-25 66-10 59 18-7 28-47 18-50 42-3 22 25 31 53 18"/></g><text x="200" y="118" text-anchor="middle" fill="#f0c33b" font-family="Arial,sans-serif" font-size="48" letter-spacing="2">CASINO</text><text x="200" y="154" text-anchor="middle" fill="#fff" font-family="Arial,sans-serif" font-size="25" letter-spacing="3">LOCARNO</text></svg>""",
+        "casino-locarno": """<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 180"><rect width="500" height="180" rx="12" fill="#0f1420"/><g fill="none" stroke="#dce5e8" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"><path d="M226 36c31-24 64-8 57 16-7 25-41 18-48 37-7 18 13 30 42 27"/></g><text x="250" y="116" text-anchor="middle" fill="#f0c52b" font-family="Arial,sans-serif" font-size="49" font-weight="700">CASINO</text><text x="250" y="151" text-anchor="middle" fill="#fff" font-family="Arial,sans-serif" font-size="27" font-weight="600" letter-spacing="2">LOCARNO</text></svg>""",
     "casino-neuenburg": """<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 180"><rect width="400" height="180" rx="12" fill="#0b1020"/><text x="200" y="86" text-anchor="middle" fill="#fff" font-family="Arial,sans-serif" font-weight="700" font-size="43" letter-spacing="1">CASINO</text><text x="200" y="128" text-anchor="middle" fill="#fff" font-family="Arial,sans-serif" font-weight="700" font-size="35" letter-spacing="1">NEUCHÂTEL</text></svg>""",
     "casino-pfaeffikon": """<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 170"><g fill="none" stroke="#f4bd16" stroke-width="15" stroke-linecap="round"><path d="M45 45c30-30 73-27 92 1"/><path d="M42 73c35-30 80-25 100 5"/><path d="M42 102c36-28 82-20 99 9"/></g><circle cx="107" cy="38" r="10" fill="#f4bd16"/><text x="175" y="82" fill="#111" font-family="Arial,sans-serif" font-weight="700" font-size="42">SWISS CASINO</text><text x="175" y="125" fill="#111" font-family="Arial,sans-serif" font-weight="700" font-size="36">PFÄFFIKON</text></svg>""",
     "casino-zuerich": """<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 170"><g fill="none" stroke="#f4bd16" stroke-width="15" stroke-linecap="round"><path d="M45 45c30-30 73-27 92 1"/><path d="M42 73c35-30 80-25 100 5"/><path d="M42 102c36-28 82-20 99 9"/></g><circle cx="107" cy="38" r="10" fill="#f4bd16"/><text x="175" y="82" fill="#111" font-family="Arial,sans-serif" font-weight="700" font-size="42">SWISS CASINO</text><text x="175" y="125" fill="#111" font-family="Arial,sans-serif" font-weight="700" font-size="36">ZÜRICH</text></svg>""",
@@ -58,6 +61,8 @@ def favicon(url):
     return f"https://www.google.com/s2/favicons?domain={host}&sz=128" if host else ""
 
 def provider_logo(provider_id, source_url):
+    if provider_id == "casino-locarno":
+        return "data:image/svg+xml;charset=utf-8," + quote(INLINE_LOGOS["casino-locarno"])
     return PROVIDER_LOGOS.get(provider_id) or favicon(source_url)
 
 def initials(name):
