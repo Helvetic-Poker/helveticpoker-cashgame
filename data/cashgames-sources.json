@@ -1,0 +1,23 @@
+[
+  {"id":"casino-baden","name":"Grand Casino Baden","city":"Baden","canton":"AG","source_url":"https://www.grandcasinobaden.ch/","enabled":true},
+  {"id":"casino-bad-ragaz","name":"Casino Bad Ragaz","city":"Bad Ragaz","canton":"SG","source_url":"https://www.casino-badragaz.ch/","enabled":true},
+  {"id":"casino-basel","name":"Grand Casino Basel","city":"Basel","canton":"BS","source_url":"https://www.grandcasinobasel.com/","enabled":true},
+  {"id":"casino-bern","name":"Grand Casino Bern","city":"Bern","canton":"BE","source_url":"https://www.grandcasino-bern.ch/","enabled":true},
+  {"id":"casino-courrendlin","name":"Casino Barrière Courrendlin","city":"Courrendlin","canton":"JU","source_url":"https://www.casinosbarriere.com/courrendlin","enabled":true},
+  {"id":"casino-crans-montana","name":"Casino Crans-Montana","city":"Crans-Montana","canton":"VS","source_url":"https://www.casino-crans-montana.ch/","enabled":true},
+  {"id":"casino-davos","name":"Casino Davos","city":"Davos","canton":"GR","source_url":"https://www.casinodavos.ch/poker/","enabled":true},
+  {"id":"casino-granges-paccot","name":"Casino Barrière Fribourg","city":"Granges-Paccot","canton":"FR","source_url":"https://www.casinosbarriere.com/fribourg","enabled":true},
+  {"id":"casino-interlaken","name":"Casino Interlaken","city":"Interlaken","canton":"BE","source_url":"https://www.casino-interlaken.ch/","enabled":true},
+  {"id":"casino-locarno","name":"Casinò Locarno","city":"Locarno","canton":"TI","source_url":"https://www.casinolocarno.ch/it/homepage","enabled":true},
+  {"id":"casino-lugano","name":"Casino Lugano","city":"Lugano","canton":"TI","source_url":"https://www.casinolugano.ch/","enabled":true},
+  {"id":"casino-luzern","name":"Grand Casino Luzern","city":"Luzern","canton":"LU","source_url":"https://www.grandcasinoluzern.ch/","enabled":true},
+  {"id":"casino-mendrisio","name":"Casino Admiral Mendrisio","city":"Mendrisio","canton":"TI","source_url":"https://www.admiral.ch/","enabled":true},
+  {"id":"casino-meyrin","name":"Casino du Lac Meyrin","city":"Meyrin","canton":"GE","source_url":"https://www.pasino.ch/","enabled":true},
+  {"id":"casino-montreux","name":"Casino Barrière Montreux","city":"Montreux","canton":"VD","source_url":"https://www.casinosbarriere.com/montreux","enabled":true},
+  {"id":"casino-neuenburg","name":"Casino Neuchâtel","city":"Neuenburg","canton":"NE","source_url":"https://www.casino-neuchatel.ch/","enabled":true},
+  {"id":"casino-pfaeffikon","name":"Swiss Casinos Pfäffikon","city":"Pfäffikon","canton":"SZ","source_url":"https://www.swisscasinos.ch/en/pfaffikon-0","enabled":true},
+  {"id":"casino-prilly","name":"Grand Casino Prilly","city":"Prilly","canton":"VD","source_url":"https://grandcasinoprilly.com/","enabled":true},
+  {"id":"casino-st-gallen","name":"Swiss Casinos St. Gallen","city":"St. Gallen","canton":"SG","source_url":"https://www.swisscasinos.ch/","enabled":true},
+  {"id":"casino-winterthur","name":"Swiss Casino Winterthur","city":"Winterthur","canton":"ZH","source_url":"https://www.swisscasinos.ch/","enabled":true},
+  {"id":"casino-zuerich","name":"Swiss Casino Zürich","city":"Zürich","canton":"ZH","source_url":"https://www.swisscasinos.ch/","enabled":true}
+]
