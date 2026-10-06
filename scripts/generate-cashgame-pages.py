@@ -27,8 +27,8 @@ PROVIDER_LOGOS = {
     # Deployment sanity check: keep the generator on the explicit build path.
     # Verified full logo/wordmark assets where available; no favicons for the
     # eight brands explicitly audited here.
-    "casino-baden": "https://www.grandcasinobaden.ch/var/site/storage/original/image/42a66439226a0c364a5a0c53a6ef7728.svg",
-    "casino-bad-ragaz": "https://swiss007.com/wp-content/uploads/2021/06/badragaz.jpg",
+    "casino-baden": "https://images.ctfassets.net/7q178rxww3yj/NuEGmB2eIvAiGz2LebWok/3bca270f750e422a0cad1ba78a4fa2d8/casinobaden.svg",
+    "casino-bad-ragaz": "https://images.ctfassets.net/7q178rxww3yj/4dzvv6pyv3PbpaCsOHDGAO/22d20334d3b553b0e7d3cd16c4292c28/Card_Casino_Bad_Ragaz.svg",
     "casino-basel": "https://media.jobs.ch/media/cfcf4c22-f90e-4525-a202-85ed807c5e53",
     "casino-bern": "https://media.jobs.ch/images/a9efa51a-1c0e-4e26-94b7-018547a987b9/3379x1734.png",
     "casino-courrendlin": "https://www.casinosbarriere.com/favicon.ico",
