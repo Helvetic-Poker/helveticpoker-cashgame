@@ -144,6 +144,9 @@ def casino_card(s):
 </a>"""
 
 OUT.mkdir(exist_ok=True)
+verification_file = ROOT / "google7842e2a0234e258b.html"
+if verification_file.exists():
+    (OUT / verification_file.name).write_text(verification_file.read_text(encoding="utf-8"), encoding="utf-8")
 (OUT / "index.html").write_text(shell(
     "Cash Games Schweiz | Helvetic Poker",
     "Aktuelle Poker-Cash-Games in Schweizer Casinos mit Limits, Buy-ins, Spielzeiten und offiziellen Quellen.",
