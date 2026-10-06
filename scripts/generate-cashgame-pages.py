@@ -9,6 +9,7 @@ DATA = ROOT / "data"
 OUT = ROOT / "public"
 BASE = "https://cashgame.helveticpoker.ch"
 LOGO = f"{BASE}/assets/helvetic-poker-logo.png"
+TOURNAMENTS = "https://pokerturniere.helveticpoker.ch/"
 
 sources = json.loads((DATA / "cashgames-sources.json").read_text(encoding="utf-8"))
 games = json.loads((DATA / "cashgames.json").read_text(encoding="utf-8"))
