@@ -61,11 +61,15 @@ def shell(title, description, body, canonical):
 *{{box-sizing:border-box}}
 body{{margin:0;background:#f4f6f8;color:#13263a;font-family:Arial,Helvetica,sans-serif}}
 a{{color:inherit}}
-header{{background:#0c1b27;border-top:4px solid #e21b35}}
-.nav{{max-width:1120px;margin:auto;padding:12px 18px;display:flex;justify-content:space-between;align-items:center;gap:20px}}
-.logo{{width:205px;max-height:55px;object-fit:contain;object-position:left}}
-.links{{display:flex;gap:18px;font-size:13px;font-weight:700;color:#fff}}
-.links a{{text-decoration:none}}
+header{{height:88px;background:linear-gradient(100deg,#0c1b27,#143244);color:#fff;position:sticky;top:0;z-index:20;box-shadow:0 2px 8px #00101825;border-top:4px solid #e21b35}}
+.nav{{max-width:1180px;height:100%;margin:auto;padding:0 18px;display:flex;align-items:center;gap:28px}}
+.brand{{display:flex;align-items:center;text-decoration:none;min-width:92px}}
+.brandLogo{{display:block;width:82px;height:82px;object-fit:contain;background:transparent;border:0;border-radius:0;padding:0}}
+.links{{display:flex;gap:29px;margin-left:auto;font-size:15px;font-weight:300;letter-spacing:-.015em;text-transform:uppercase}}
+.links a{{text-decoration:none;opacity:.94}}
+.links a.active{{position:relative}}
+.links a.active:after{{content:"";position:absolute;left:0;right:0;bottom:-23px;height:3px;background:#ff4055;border-radius:3px}}
+.menuBtn{{display:none;margin-left:auto;width:44px;height:44px;border:1px solid #ffffff35;border-radius:9px;background:#ffffff10;color:#fff;font-size:25px;line-height:1;cursor:pointer}}
 main{{max-width:1120px;margin:auto;padding:26px 18px 55px}}
 .crumb{{font-size:13px;color:#687580;margin-bottom:14px}}
 .hero{{background:#fff;border:1px solid #dfe5ea;border-radius:16px;padding:30px;box-shadow:0 8px 24px #10223810}}
@@ -99,12 +103,15 @@ a.source{{display:inline-block;margin-top:10px;color:#d21935;font-weight:800;tex
 footer{{max-width:1120px;margin:auto;padding:25px 18px;color:#71808d;font-size:13px}}
 @media(max-width:850px){{.grid{{grid-template-columns:repeat(2,minmax(0,1fr))}}}}
 @media(max-width:650px){{.links{{display:none}}main{{padding:20px 10px}}.hero{{padding:24px 20px}}.grid{{grid-template-columns:1fr}}}}
+@media(max-width:1100px){.links{display:none}.menuBtn{display:block}}
+@media(max-width:720px){header{height:64px}.nav{padding:0 12px;gap:12px}.menuBtn{display:block}.links.open{display:flex;position:absolute;top:64px;left:10px;right:10px;margin:0;padding:8px;background:#102b3b;border:1px solid #ffffff18;border-radius:0 0 10px 10px;flex-direction:column;gap:0;box-shadow:0 10px 24px #00101835}.links.open a{padding:12px 10px}.links a.active:after{display:none}}
 </style>
 </head>
 <body>
 <header><div class="nav"><a href="{BASE}/"><img class="logo" src="{LOGO}" alt="Helvetic Poker"></a><nav class="links"><a href="{BASE}/">Cash Games</a><a href="{TOURNAMENTS}">Pokerturniere</a><a href="{BASE}/#casinos">Casinos</a></nav></div></header>
 <main>{body}</main>
 <footer>Helvetic Poker · <a href="{TOURNAMENTS}" style="color:inherit">Pokerturniere Schweiz</a> · <a href="{BASE}/" style="color:inherit">Cash Games Schweiz</a> · Offizielle Quellen · tägliche Quellenprüfung.</footer>
+<script>const menuBtn=document.getElementById("menuBtn"),mobileNav=document.getElementById("mobileNav");if(menuBtn&&mobileNav){menuBtn.onclick=()=>{const open=mobileNav.classList.toggle("open");menuBtn.setAttribute("aria-expanded",open?"true":"false");menuBtn.textContent=open?"×":"☰"};mobileNav.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>{mobileNav.classList.remove("open");menuBtn.setAttribute("aria-expanded","false");menuBtn.textContent="☰"}));}</script>
 </body></html>"""
 
 def logo_img(name, source_url, provider_id=None, cls="provider-logo"):
