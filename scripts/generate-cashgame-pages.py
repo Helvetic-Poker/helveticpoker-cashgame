@@ -58,7 +58,7 @@ def favicon(url):
 
 def provider_logo(provider_id, source_url):
     if provider_id == "casino-locarno":
-        return """<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-label="Casinò Locarno"><rect width="200" height="200" fill="#111b2a"/><g transform="translate(100 58)" fill="none" stroke="#dce3e8" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"><path d="M-35 0c13-16 42-19 56-5 10 10 3 22-10 25-15 4-27-1-34 8-6 8-1 16 10 19"/></g><text x="100" y="125" text-anchor="middle" fill="#f3c51b" font-family="Arial,sans-serif" font-size="29" font-weight="700" letter-spacing="0.5">CASINÒ</text><text x="100" y="151" text-anchor="middle" fill="#fff" font-family="Arial,sans-serif" font-size="18" font-weight="500" letter-spacing="1.2">LOCARNO</text></svg>"""
+        return "data:image/jpeg;base64,REPLACE_ME"
     return PROVIDER_LOGOS.get(provider_id) or favicon(source_url)
 
 def initials(name):
