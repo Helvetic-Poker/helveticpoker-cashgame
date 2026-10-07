@@ -102,7 +102,7 @@ h2{{font-size:25px;margin:30px 0 12px}}
 .lead{{color:rgba(255,255,255,.88);font-size:17px;max-width:850px;margin:14px 0 0}}
 .stats{{display:flex;gap:8px;margin-top:18px;flex-wrap:wrap}}
 .stat{{padding:9px 12px;border:1px solid #e0e5ea;border-radius:10px;background:#fff}}
-.stat strong{{display:block;font-size:19px}}
+.stat strong{{display:block;font-size:19px;color:var(--ink)}}
 .stat span{{font-size:11px;color:#6c7884}}
 .grid{{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:14px}}
 .card{{background:#fff;border:1px solid #dfe5ea;border-radius:14px;overflow:hidden;box-shadow:0 3px 12px #10223808}}
