@@ -56,9 +56,10 @@ def favicon(url):
     host = domain(url)
     return f"https://www.google.com/s2/favicons?domain={host}&sz=128" if host else ""
 
-LOCARNO_SVG = """<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200"><rect width="200" height="200" fill="#062743"/><g transform="translate(72 68) rotate(-10)"><ellipse cx="28" cy="14" rx="27" ry="9" fill="none" stroke="#8fa5b5" stroke-width="5"/><path d="M8 15c10-13 25-17 40-8-10 0-20 3-29 11z" fill="#d8e1e6"/><circle cx="30" cy="5" r="4" fill="#fff"/></g><text x="100" y="119" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="31" font-weight="700" letter-spacing="-1" fill="#f3d21f">CASIN<tspan>O</tspan></text><circle cx="153" cy="101" r="8" fill="none" stroke="#f3d21f" stroke-width="3"/><circle cx="153" cy="101" r="2.5" fill="#062743"/><text x="100" y="136" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="500" letter-spacing="2.2" fill="#fff">LOCARNO</text></svg>"""
-
 def provider_logo(provider_id, source_url):
+    if provider_id == "casino-locarno":
+        return "https://raw.githubusercontent.com/Helvetic-Poker/helveticpoker-cashgame/main/public/assets/casino-locarno.jpg"
+    return PROVIDER_LOGOS.get(provider_id) or favicon(source_url)
     if provider_id == "casino-locarno":
         return "data:image/svg+xml;utf-8," + quote(LOCARNO_SVG, safe="")
     return PROVIDER_LOGOS.get(provider_id) or favicon(source_url)
