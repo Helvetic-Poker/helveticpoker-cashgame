@@ -139,6 +139,14 @@ a.source{{display:inline-block;margin-top:10px;color:#d21935;font-weight:800;tex
 .casino-card{{display:flex;align-items:center;gap:13px;padding:15px}}
 .casino-card .provider-logo{{width:84px;height:58px;min-width:84px}}
 .notice{{background:#fff;border:1px solid #dfe5ea;border-radius:14px;padding:20px;margin-top:14px}}
+.seo-section{{background:#fff;border:1px solid #dfe5ea;border-radius:14px;padding:24px;margin-top:16px}}
+.seo-section h2{{margin:0 0 12px;font-size:24px}}
+.seo-section h3{{margin:20px 0 7px;font-size:17px}}
+.seo-section p{{margin:9px 0;color:#40505e;line-height:1.65;font-size:14px}}
+.link-grid{{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-top:12px}}
+.internal-link{{display:block;padding:11px 13px;border:1px solid #dfe5ea;border-radius:9px;text-decoration:none;background:#fafbfc;font-size:13px;font-weight:700}}
+.internal-link:hover{{border-color:#c8d0d8;background:#f5f7f8}}
+.provider-inline{{color:#d21935;text-decoration:none;font-weight:800}}
 footer{{max-width:1180px;margin:auto;padding:25px 18px;color:#71808d;font-size:13px}}
 @media(max-width:1100px){{.links{{display:none}}.menuBtn{{display:block}}}}
 @media(max-width:850px){{.grid{{grid-template-columns:repeat(2,minmax(0,1fr))}}}}
@@ -181,7 +189,7 @@ def card(g):
     return f"""<article class="card">
 <div class="card-top">{logo_img(provider, source_url, s.get("id") if s else g.get("provider_id"))}<div><div class="provider-name">{escape(provider)}</div><div class="provider-city">{escape(city)} · {escape(canton)}</div></div></div>
 <div class="card-body">
-<h3>{escape(g.get("variant",""))} <span class="stakes">{escape(g.get("stakes",""))}</span></h3>
+<h3><a class="provider-inline" href="{BASE}/anbieter/{escape(s["id"])}/">{escape(g.get("variant",""))}</a> <span class="stakes">{escape(g.get("stakes",""))}</span></h3>
 <div class="detail-grid"><div class="detail"><div class="detail-label">Buy-in</div><div class="detail-value">{escape(buy)}</div></div><div class="detail"><div class="detail-label">Status</div><div class="detail-value">Bestätigt</div></div></div>
 {schedule_html(g)}
 <a class="source" href="{escape(source_url)}" rel="noopener" target="_blank">Zum Casino →</a>
@@ -203,13 +211,37 @@ if verification_file.exists():
     (OUT / verification_file.name).write_text(verification_file.read_text(encoding="utf-8"), encoding="utf-8")
 (OUT / "index.html").write_text(shell(
     "Poker Cash Games Schweiz | Casinos, Limits & Spielzeiten | Helvetic Poker",
-    "Poker Cash Games in der Schweiz: bestätigte Casinos, Limits, Buy-ins, Spielzeiten und offizielle Quellen. Täglich geprüft.",
+    "Poker Cash Games in der Schweiz: bestätigte Casinos, Limits, Buy-ins, Spielzeiten und offizielle Quellen – laufend geprüft.",
     f"""<section class="hero"><h1>Cash Games Schweiz</h1>
 <p class="lead">Aktuelle Poker Cash Games in Schweizer Casinos – mit Limits, Buy-ins, Spielzeiten und offizieller Quelle, getrennt vom Turnierkalender.</p>
 <div class="stats"><div class="stat"><strong>{len(confirmed)}</strong><span>bestätigte Angebote</span></div><div class="stat"><strong>{len(paused)}</strong><span>pausierte Angebote</span></div><div class="stat"><strong>{len(sources)}</strong><span>geprüfte Anbieter</span></div></div></section>
+
+<section class="seo-section"><h2>Poker Cash Game in der Schweiz</h2>
+<p>Du suchst ein <strong>Poker Cash Game in der Schweiz</strong>? Hier findest du die aktuell bestätigten klassischen Cash Games in Schweizer Casinos. Im Gegensatz zu einem Pokerturnier kaufst du Chips direkt am Tisch und kannst nach den jeweiligen Hausregeln ein- und aussteigen. Die Übersicht zeigt dir, wo Cash Games aktuell bestätigt sind und welche Limits, Buy-ins und Spielzeiten veröffentlicht wurden.</p>
+<p>Wir führen nur Angebote als aktiv, wenn wir sie anhand einer offiziellen Casino-Quelle nachvollziehen können. So bleibt die Liste auch dann verlässlich, wenn sich Spielpläne oder Pokerangebote kurzfristig ändern.</p>
+</section>
+
 <h2>Aktuelle Cash Games</h2>
 <div class="grid">{''.join(card(g) for g in confirmed)}</div>
-<section class="notice"><h2 style="margin-top:0">Poker Cash Game in der Schweiz</h2><p>Hier findest du bestätigte klassische Poker-Cash-Games in Schweizer Casinos. Wir unterscheiden bewusst zwischen Cash Game Spieler gegen Spieler und Casino-Spielen gegen die Bank. Angaben zu Limits, Buy-ins und Spielzeiten werden anhand offizieller Casino-Quellen geprüft.</p><p>Wenn für ein Casino aktuell kein bestätigtes Cash Game vorliegt, stellen wir diese Information nicht als aktives Angebot dar. So bleibt die Übersicht konservativ und nachvollziehbar.</p></section>
+
+<section class="seo-section"><h2>Cash Game nach Casino und Stadt</h2>
+<p>Die folgenden Seiten bündeln die jeweils bestätigten Angaben pro Casino. Dort findest du die Spielvariante, Limits, Buy-in-Informationen, Spielzeiten und den direkten Link zur jeweiligen Casino-Quelle.</p>
+<div class="link-grid">{''.join(f'<a class="internal-link" href="{BASE}/anbieter/{escape(s["id"])}/">{escape(s["name"])} · {escape(s["city"])} →</a>' for s in sources if any(g.get("provider_id") == s["id"] and g.get("status") in {"confirmed", "paused"} for g in games))}</div>
+</section>
+
+<section class="seo-section"><h2>Cash Game oder Pokerturnier?</h2>
+<p>Beim <strong>Cash Game</strong> spielt jeder mit frei verfügbaren Chips um echtes Geld; die Blinds und Tischlimits bleiben grundsätzlich bestehen, solange der Tisch läuft. Bei einem <strong>Pokerturnier</strong> zahlst du dagegen ein Buy-in für ein Turnierfeld und spielst um die ausgeschütteten Preisgelder. Wenn du gezielt nach Turnieren suchst, findest du den separaten <a class="provider-inline" href="{TOURNAMENTS}">Pokerturnier-Kalender Schweiz</a>.</p>
+<p>Ausserdem unterscheiden wir klassische Cash Games strikt von <strong>Ultimate Texas Hold'em</strong> und anderen Casino-Spielen gegen die Bank. Nur Spieler-gegen-Spieler-Cash-Games werden hier als klassische Cash Games geführt.</p>
+</section>
+
+<section class="seo-section"><h2>So aktuell sind die Angaben</h2>
+<p>Wir prüfen die erfassten Casino-Quellen regelmässig. Bei Limits, Buy-ins und Spielzeiten übernehmen wir nur Angaben, die sich aus einer offiziellen Quelle ableiten lassen. Ein Casino ohne aktuell bestätigtes klassisches Cash Game wird nicht als aktives Angebot dargestellt.</p>
+<h3>Warum sind nicht alle Schweizer Casinos gelistet?</h3>
+<p>Die Datenbank umfasst geprüfte Schweizer Anbieter, aber eine Casino-Seite allein ist kein Beleg für ein aktuell laufendes klassisches Cash Game. Deshalb veröffentlichen wir unbestätigte Angebote nicht als Tatsachen. Sobald ein Angebot eindeutig bestätigt ist, kann es in die aktuelle Übersicht aufgenommen werden.</p>
+</section>
+
+<section class="notice"><strong>Letzte Datenprüfung:</strong> Die Angaben werden fortlaufend gegen offizielle Quellen geprüft. Bei kurzfristigen Änderungen kann der Casino-Betrieb von den veröffentlichten Zeiten abweichen.</section>
+
 <h2 id="casinos">Schweizer Casinos</h2>
 <div class="grid">{''.join(casino_card(s) for s in sources)}</div>""",
     BASE + "/"
@@ -217,12 +249,14 @@ if verification_file.exists():
 
 for s in sources:
     sgames = [g for g in games if g.get("provider_id") == s["id"] and g.get("status") == "confirmed"]
-    body = f"""<section class="hero"><div class="card-top" style="padding:0 0 14px">{logo_img(s["name"], s["source_url"], s["id"])}<div><h1 style="font-size:clamp(30px,4vw,46px)">{escape(s["name"])}</h1><p class="lead">{escape(s["city"])} · Kanton {escape(s["canton"])}</p></div></div>
-<a class="source" href="{escape(s["source_url"])}" rel="noopener" target="_blank">Offizielle Website →</a></section>"""
+    body = f"""<section class="hero"><div class="card-top" style="padding:0 0 14px">{logo_img(s["name"], s["source_url"], s["id"])}<div><h1 style="font-size:clamp(30px,4vw,46px)">Poker Cash Game {escape(s["name"])}</h1><p class="lead">{escape(s["city"])} · Kanton {escape(s["canton"])}</p></div></div>
+<a class="source" href="{escape(s["source_url"])}" rel="noopener" target="_blank">Zum Casino →</a></section>"""
     if sgames:
+        body += f'<section class="seo-section"><h2>Cash Game bei {escape(s["name"])}</h2><p>Für {escape(s["city"])} ist aktuell mindestens ein klassisches Poker-Cash-Game anhand einer offiziellen Casino-Quelle bestätigt. Die folgenden Angaben zeigen den derzeit bekannten Spieltyp, das Limit, den Buy-in-Rahmen und die veröffentlichten Spielzeiten.</p></section>'
         body += '<h2>Bestätigte Cash Games</h2><div class="grid">' + ''.join(card(g) for g in sgames) + '</div>'
+        body += f'<section class="seo-section"><h2>Aktuelle Informationen für Poker in {escape(s["city"])}</h2><p>Die Angaben auf dieser Seite beziehen sich auf klassische Cash Games Spieler gegen Spieler. Bei kurzfristigen Änderungen des Casino-Betriebs können sich Spielzeiten, Tischöffnung oder verfügbare Limits ändern. Für die jeweils aktuelle Originalinformation führt der Link <a class="provider-inline" href="{escape(s["source_url"])}" rel="noopener" target="_blank">zum Casino</a>.</p><p>Zurück zur <a class="provider-inline" href="{BASE}/">Übersicht der Poker Cash Games Schweiz</a>.</p></section>'
     else:
-        body += '<div class="notice"><strong>Aktuell keine bestätigten Cash-Game-Daten.</strong><p>Die offizielle Quelle wird täglich geprüft. Nicht bestätigte Informationen werden bewusst nicht als aktiv dargestellt.</p></div>'
+        body += '<div class="notice"><strong>Aktuell keine bestätigten Cash-Game-Daten.</strong><p>Die offizielle Quelle wird täglich geprüft. Nicht bestätigte Informationen werden bewusst nicht als aktiv dargestellt.</p><p><a class="provider-inline" href="{BASE}/">Zurück zur Übersicht der Poker Cash Games Schweiz →</a></p></div>'
     path = OUT / "anbieter" / s["id"] / "index.html"
     path.parent.mkdir(parents=True, exist_ok=True)
     has_paused = any(g.get("provider_id") == s["id"] and g.get("status") == "paused" for g in games)
