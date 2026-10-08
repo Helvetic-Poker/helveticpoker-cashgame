@@ -152,7 +152,7 @@ header{{height:64px}}.nav{{padding:0 12px;gap:12px}}.menuBtn{{display:block}}.he
 <body>
 <div class="top"></div><header><div class="nav"><a class="brand" href="https://www.helveticpoker.ch/" target="_blank" rel="noopener"><img class="brandLogo" src="{LOGO}" alt="Helvetic Poker"></a><button class="menuBtn" id="menuBtn" aria-label="Menü öffnen" aria-expanded="false">☰</button><nav class="links" id="mobileNav"><a href="https://www.helveticpoker.ch/blog" target="_blank" rel="noopener">News</a><a href="{TOURNAMENTS}">Pokerturniere</a><a class="active" href="{BASE}/">Cash Games</a><a href="https://www.helveticpoker.ch/pokerclubs-schweiz" target="_blank" rel="noopener">Poker Rooms Schweiz</a><a href="https://www.helveticpoker.ch/anbieter" target="_blank" rel="noopener">Online-Anbieter</a><a href="https://www.helveticpoker.ch/recht-sicherheit" target="_blank" rel="noopener">Recht &amp; Sicherheit</a></nav></div></header>
 <main>{breadcrumb}{body}</main>
-<footer>Helvetic Poker · <a href="{TOURNAMENTS}" style="color:inherit">Pokerturniere Schweiz</a> · <a href="{BASE}/" style="color:inherit">Cash Games Schweiz</a> · Offizielle Quellen · tägliche Quellenprüfung.</footer>
+<footer>Helvetic Poker · <a href="{TOURNAMENTS}" style="color:inherit">Pokerturniere Schweiz</a> · <a href="{BASE}/" style="color:inherit">Cash Games Schweiz</a> · Tägliche Quellenprüfung.</footer>
 <script>const menuBtn=document.getElementById("menuBtn"),mobileNav=document.getElementById("mobileNav");if(menuBtn&&mobileNav){{menuBtn.onclick=()=>{{const open=mobileNav.classList.toggle("open");menuBtn.setAttribute("aria-expanded",open?"true":"false");menuBtn.textContent=open?"×":"☰"}};mobileNav.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>{{mobileNav.classList.remove("open");menuBtn.setAttribute("aria-expanded","false");menuBtn.textContent="☰"}}));}}</script>
 </body></html>"""
 
@@ -183,7 +183,7 @@ def card(g):
 <h3>{escape(g.get("variant",""))} <span class="stakes">{escape(g.get("stakes",""))}</span></h3>
 <div class="detail-grid"><div class="detail"><div class="detail-label">Buy-in</div><div class="detail-value">{escape(buy)}</div></div><div class="detail"><div class="detail-label">Status</div><div class="detail-value">Bestätigt</div></div></div>
 {schedule_html(g)}
-<a class="source" href="{escape(source_url)}" rel="noopener" target="_blank">Offizielle Quelle →</a>
+<a class="source" href="{escape(source_url)}" rel="noopener" target="_blank">Zum Casino →</a>
 </div></article>"""
 
 def casino_card(s):
