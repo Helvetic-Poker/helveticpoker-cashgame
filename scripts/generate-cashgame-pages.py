@@ -67,7 +67,18 @@ def initials(name):
     words = [w for w in re.findall(r"[A-Za-zÄÖÜäöüÀ-ÿ0-9]+", name) if w.lower() not in {"grand", "casino", "swiss"}]
     return "".join(w[0] for w in words[:2]).upper() or "CG"
 
-def shell(title, description, body, canonical):
+def shell(title, description, body, canonical, indexable=True):
+    robots = "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" if indexable else "noindex,follow,max-image-preview:-1,max-snippet:-1,max-video-preview:-1"
+    is_home = canonical == BASE + "/"
+    breadcrumb = "" if is_home else f'<div class="crumb"><a href="{BASE}/">Cash Games Schweiz</a> &nbsp;›&nbsp; {escape(title.replace(" | Helvetic Poker", ""))}</div>'
+    schema = [
+        {"@context": "https://schema.org", "@type": "Organization", "@id": "https://www.helveticpoker.ch/#organization", "name": "Helvetic Poker", "url": "https://www.helveticpoker.ch/", "logo": LOGO},
+        {"@context": "https://schema.org", "@type": "WebSite", "@id": BASE + "/#website", "url": BASE + "/", "name": "Helvetic Poker Cash Games", "publisher": {"@id": "https://www.helveticpoker.ch/#organization"}},
+        {"@context": "https://schema.org", "@type": "WebPage", "@id": canonical + "#webpage", "url": canonical, "name": title, "description": description, "isPartOf": {"@id": BASE + "/#website"}}
+    ]
+    if not is_home:
+        schema.append({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Cash Games Schweiz", "item": BASE + "/"}, {"@type": "ListItem", "position": 2, "name": title.replace(" | Helvetic Poker", "")}]})
+    schema_json = json.dumps(schema, ensure_ascii=False, separators=(",", ":"))
     return f"""<!doctype html>
 <html lang="de-CH">
 <head>
@@ -75,13 +86,14 @@ def shell(title, description, body, canonical):
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{escape(title)}</title>
 <meta name="description" content="{escape(description)}">
-<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+<meta name="robots" content="{robots}">
 <link rel="canonical" href="{escape(canonical)}">
 <meta property="og:type" content="website">
 <meta property="og:title" content="{escape(title)}">
 <meta property="og:description" content="{escape(description)}">
 <meta property="og:url" content="{escape(canonical)}">
 <meta property="og:site_name" content="Helvetic Poker">
+<script type="application/ld+json">{schema_json}</script>
 <style>
 *{{box-sizing:border-box}}
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap");\nhtml{{font-family:Montserrat,Arial,sans-serif}}body{{font-family:Montserrat,Arial,sans-serif;-webkit-font-smoothing:antialiased;text-rendering:geometricPrecision}}\n:root{{--nav:#0c1b27;--nav2:#143244;--red:#e21b35;--red2:#ff4055;--ink:#13263a;--muted:#6f7c8b;--line:#dfe5ea;--bg:#f3f5f7;--green:#16884b;--max:1180px}}\nbody{{margin:0;background:var(--bg);color:var(--ink);font-family:Montserrat,system-ui,sans-serif}}
@@ -139,7 +151,7 @@ header{{height:64px}}.nav{{padding:0 12px;gap:12px}}.menuBtn{{display:block}}.he
 </head>
 <body>
 <div class="top"></div><header><div class="nav"><a class="brand" href="https://www.helveticpoker.ch/" target="_blank" rel="noopener"><img class="brandLogo" src="{LOGO}" alt="Helvetic Poker"></a><button class="menuBtn" id="menuBtn" aria-label="Menü öffnen" aria-expanded="false">☰</button><nav class="links" id="mobileNav"><a href="https://www.helveticpoker.ch/blog" target="_blank" rel="noopener">News</a><a href="{TOURNAMENTS}">Pokerturniere</a><a class="active" href="{BASE}/">Cash Games</a><a href="https://www.helveticpoker.ch/pokerclubs-schweiz" target="_blank" rel="noopener">Poker Rooms Schweiz</a><a href="https://www.helveticpoker.ch/anbieter" target="_blank" rel="noopener">Online-Anbieter</a><a href="https://www.helveticpoker.ch/recht-sicherheit" target="_blank" rel="noopener">Recht &amp; Sicherheit</a></nav></div></header>
-<main>{body}</main>
+<main>{breadcrumb}{body}</main>
 <footer>Helvetic Poker · <a href="{TOURNAMENTS}" style="color:inherit">Pokerturniere Schweiz</a> · <a href="{BASE}/" style="color:inherit">Cash Games Schweiz</a> · Offizielle Quellen · tägliche Quellenprüfung.</footer>
 <script>const menuBtn=document.getElementById("menuBtn"),mobileNav=document.getElementById("mobileNav");if(menuBtn&&mobileNav){{menuBtn.onclick=()=>{{const open=mobileNav.classList.toggle("open");menuBtn.setAttribute("aria-expanded",open?"true":"false");menuBtn.textContent=open?"×":"☰"}};mobileNav.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>{{mobileNav.classList.remove("open");menuBtn.setAttribute("aria-expanded","false");menuBtn.textContent="☰"}}));}}</script>
 </body></html>"""
@@ -181,6 +193,9 @@ def casino_card(s):
 </a>"""
 
 OUT.mkdir(exist_ok=True)
+# Remove stale generated pages so renamed/removed providers cannot remain published.
+for stale in (OUT / "anbieter").glob("*/index.html") if (OUT / "anbieter").exists() else []:
+    stale.unlink()
 # Keep the Search Console verification file in the published root.
 verification_file = ROOT / "google7842e2a0234e258b.html"
 if verification_file.exists():
@@ -208,6 +223,25 @@ for s in sources:
         body += '<div class="notice"><strong>Aktuell keine bestätigten Cash-Game-Daten.</strong><p>Die offizielle Quelle wird täglich geprüft. Nicht bestätigte Informationen werden bewusst nicht als aktiv dargestellt.</p></div>'
     path = OUT / "anbieter" / s["id"] / "index.html"
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(shell(f'Cash Games {s["name"]} | Helvetic Poker', f'Cash-Game-Informationen für {s["name"]} in {s["city"]}.', body, f'{BASE}/anbieter/{s["id"]}/'), encoding="utf-8")
+    has_paused = any(g.get("provider_id") == s["id"] and g.get("status") == "paused" for g in games)
+    indexable = bool(sgames or has_paused)
+    path.write_text(shell(f'Cash Games {s["name"]} | Helvetic Poker', f'Cash-Game-Informationen für {s["name"]} in {s["city"]}.', body, f'{BASE}/anbieter/{s["id"]}/', indexable=indexable), encoding="utf-8")
 
-print(f"Generated homepage and {len(sources)} provider pages.")
+# Publish only the homepage plus substantive provider pages (confirmed or paused).
+lastmod_by_provider = {}
+for g in games:
+    if g.get("status") in {"confirmed", "paused"} and g.get("provider_id"):
+        lastmod_by_provider[g["provider_id"]] = max(lastmod_by_provider.get(g["provider_id"], ""), g.get("last_checked", ""))
+urls = [(BASE + "/", max((g.get("last_checked", "") for g in games), default=""))]
+for s in sources:
+    has_status = any(g.get("provider_id") == s["id"] and g.get("status") in {"confirmed", "paused"} for g in games)
+    if has_status:
+        urls.append((f'{BASE}/anbieter/{s["id"]}/', lastmod_by_provider.get(s["id"], "")))
+sitemap_entries = []
+for url, lastmod in urls:
+    lm = f"<lastmod>{escape(lastmod[:10])}</lastmod>" if lastmod else ""
+    sitemap_entries.append(f"<url><loc>{escape(url)}</loc>{lm}</url>")
+(OUT / "sitemap.xml").write_text('<?xml version="1.0" encoding="UTF-8"?>\\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' + "".join(sitemap_entries) + "</urlset>\\n", encoding="utf-8")
+(OUT / "robots.txt").write_text("User-agent: *\\nAllow: /\\nSitemap: " + BASE + "/sitemap.xml\\n", encoding="utf-8")
+
+print(f"Generated homepage and {len(sources)} provider pages; {len(urls)} URLs in sitemap.")
