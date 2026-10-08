@@ -201,13 +201,14 @@ verification_file = ROOT / "google7842e2a0234e258b.html"
 if verification_file.exists():
     (OUT / verification_file.name).write_text(verification_file.read_text(encoding="utf-8"), encoding="utf-8")
 (OUT / "index.html").write_text(shell(
-    "Cash Games Schweiz | Helvetic Poker",
-    "Aktuelle Poker-Cash-Games in Schweizer Casinos mit Limits, Buy-ins, Spielzeiten und offiziellen Quellen.",
+    "Poker Cash Games Schweiz | Casinos, Limits & Spielzeiten | Helvetic Poker",
+    "Poker Cash Games in der Schweiz: bestätigte Casinos, Limits, Buy-ins, Spielzeiten und offizielle Quellen. Täglich geprüft.",
     f"""<section class="hero"><h1>Cash Games Schweiz</h1>
-<p class="lead">Aktuelle Poker-Cash-Games in Schweizer Casinos – getrennt vom Turnierkalender.</p>
+<p class="lead">Aktuelle Poker Cash Games in Schweizer Casinos – mit Limits, Buy-ins, Spielzeiten und offizieller Quelle, getrennt vom Turnierkalender.</p>
 <div class="stats"><div class="stat"><strong>{len(confirmed)}</strong><span>bestätigte Angebote</span></div><div class="stat"><strong>{len(paused)}</strong><span>pausierte Angebote</span></div><div class="stat"><strong>{len(sources)}</strong><span>geprüfte Anbieter</span></div></div></section>
 <h2>Aktuelle Cash Games</h2>
 <div class="grid">{''.join(card(g) for g in confirmed)}</div>
+<section class="notice"><h2 style="margin-top:0">Poker Cash Game in der Schweiz</h2><p>Hier findest du bestätigte klassische Poker-Cash-Games in Schweizer Casinos. Wir unterscheiden bewusst zwischen Cash Game Spieler gegen Spieler und Casino-Spielen gegen die Bank. Angaben zu Limits, Buy-ins und Spielzeiten werden anhand offizieller Casino-Quellen geprüft.</p><p>Wenn für ein Casino aktuell kein bestätigtes Cash Game vorliegt, stellen wir diese Information nicht als aktives Angebot dar. So bleibt die Übersicht konservativ und nachvollziehbar.</p></section>
 <h2 id="casinos">Schweizer Casinos</h2>
 <div class="grid">{''.join(casino_card(s) for s in sources)}</div>""",
     BASE + "/"
@@ -225,7 +226,16 @@ for s in sources:
     path.parent.mkdir(parents=True, exist_ok=True)
     has_paused = any(g.get("provider_id") == s["id"] and g.get("status") == "paused" for g in games)
     indexable = bool(sgames or has_paused)
-    path.write_text(shell(f'Cash Games {s["name"]} | Helvetic Poker', f'Cash-Game-Informationen für {s["name"]} in {s["city"]}.', body, f'{BASE}/anbieter/{s["id"]}/', indexable=indexable), encoding="utf-8")
+    if sgames:
+        title = f'Poker Cash Games {s["name"]} | Limits & Spielzeiten | Helvetic Poker'
+        description = f'Bestätigte Poker Cash Games bei {s["name"]} in {s["city"]} mit Limits, Buy-ins, Spielzeiten und offizieller Quelle.'
+    elif has_paused:
+        title = f'Poker Cash Games {s["name"]} | Aktueller Status | Helvetic Poker'
+        description = f'Aktueller Status der Poker Cash Games bei {s["name"]} in {s["city"]}. Offizielle Quelle und tägliche Prüfung.'
+    else:
+        title = f'Poker Cash Games {s["name"]} | Helvetic Poker'
+        description = f'Informationen zu Poker Cash Games bei {s["name"]} in {s["city"]}. Aktuelle Angebote werden anhand offizieller Quellen geprüft.'
+    path.write_text(shell(title, description, body, f'{BASE}/anbieter/{s["id"]}/', indexable=indexable), encoding="utf-8")
 
 # Publish only the homepage plus substantive provider pages (confirmed or paused).
 lastmod_by_provider = {}
