@@ -1,5 +1,6 @@
 from pathlib import Path
 from html import escape
+from xml.etree import ElementTree as ET
 from urllib.parse import urlparse, quote
 import json
 import re
@@ -247,11 +248,17 @@ for s in sources:
     has_status = any(g.get("provider_id") == s["id"] and g.get("status") in {"confirmed", "paused"} for g in games)
     if has_status:
         urls.append((f'{BASE}/anbieter/{s["id"]}/', lastmod_by_provider.get(s["id"], "")))
-sitemap_entries = []
+sitemap_root = ET.Element("urlset", {"xmlns": "http://www.sitemaps.org/schemas/sitemap/0.9"})
 for url, lastmod in urls:
-    lm = f"<lastmod>{escape(lastmod[:10])}</lastmod>" if lastmod else ""
-    sitemap_entries.append(f"<url><loc>{escape(url)}</loc>{lm}</url>")
-(OUT / "sitemap.xml").write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' + "".join(sitemap_entries) + "</urlset>\n", encoding="utf-8")
+    url_el = ET.SubElement(sitemap_root, "url")
+    ET.SubElement(url_el, "loc").text = url
+    if lastmod:
+        ET.SubElement(url_el, "lastmod").text = lastmod[:10]
+
+sitemap_tree = ET.ElementTree(sitemap_root)
+ET.indent(sitemap_tree, space="  ")
+sitemap_tree.write(OUT / "sitemap.xml", encoding="utf-8", xml_declaration=True)
+
 (OUT / "robots.txt").write_text("User-agent: *\nAllow: /\nSitemap: " + BASE + "/sitemap.xml\n", encoding="utf-8")
 
 print(f"Generated homepage and {len(sources)} provider pages; {len(urls)} URLs in sitemap.")
