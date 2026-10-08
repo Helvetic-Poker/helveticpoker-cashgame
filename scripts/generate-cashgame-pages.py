@@ -87,7 +87,7 @@ def shell(title, description, body, canonical, indexable=True):
 <title>{escape(title)}</title>
 <meta name="description" content="{escape(description)}">
 <meta name="robots" content="{robots}">
-<link rel="canonical" href="{escape(canonical)}">
+<link rel="canonical" href="{escape(canonical)}">\n<link rel="icon" type="image/png" href="https://pokerturniere.helveticpoker.ch/assets/favicon.png?v=2">
 <meta property="og:type" content="website">
 <meta property="og:title" content="{escape(title)}">
 <meta property="og:description" content="{escape(description)}">
