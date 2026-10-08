@@ -251,7 +251,7 @@ sitemap_entries = []
 for url, lastmod in urls:
     lm = f"<lastmod>{escape(lastmod[:10])}</lastmod>" if lastmod else ""
     sitemap_entries.append(f"<url><loc>{escape(url)}</loc>{lm}</url>")
-(OUT / "sitemap.xml").write_text('<?xml version="1.0" encoding="UTF-8"?>\\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' + "".join(sitemap_entries) + "</urlset>\\n", encoding="utf-8")
-(OUT / "robots.txt").write_text("User-agent: *\\nAllow: /\\nSitemap: " + BASE + "/sitemap.xml\\n", encoding="utf-8")
+(OUT / "sitemap.xml").write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' + "".join(sitemap_entries) + "</urlset>\n", encoding="utf-8")
+(OUT / "robots.txt").write_text("User-agent: *\nAllow: /\nSitemap: " + BASE + "/sitemap.xml\n", encoding="utf-8")
 
 print(f"Generated homepage and {len(sources)} provider pages; {len(urls)} URLs in sitemap.")
