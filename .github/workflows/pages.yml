@@ -33,6 +33,7 @@ jobs:
           test -s public/index.html
           test -s public/google7842e2a0234e258b.html
           test "$(find public -name index.html | wc -l)" -ge 22
+          python -c "import xml.etree.ElementTree as ET; ET.parse('public/sitemap.xml')"
       - uses: actions/upload-pages-artifact@v4
         with:
           path: public
