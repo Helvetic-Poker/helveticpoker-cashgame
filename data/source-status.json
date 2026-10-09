@@ -1,8 +1,240 @@
 {
-  "checked_at": null,
+  "checked_at": "2026-10-09T05:34:57.758657+00:00",
   "expected_sources": 21,
-  "reachable_sources": 0,
-  "failed_sources": 0,
-  "status": "not_checked",
-  "sources": []
+  "reachable_sources": 20,
+  "failed_sources": 1,
+  "status": "partial",
+  "sources": [
+    {
+      "id": "casino-baden",
+      "name": "Grand Casino Baden",
+      "url": "https://www.grandcasinobaden.ch/",
+      "ok": true,
+      "status": 200,
+      "sha256": "65162de0d1ea6689af7657647bd0642b0fa8c38843b5d435dca5919169b58855",
+      "error": null,
+      "attempts": 1,
+      "status_label": "reachable"
+    },
+    {
+      "id": "casino-bad-ragaz",
+      "name": "Casino Bad Ragaz",
+      "url": "https://www.casinoragaz.ch/",
+      "ok": true,
+      "status": 200,
+      "sha256": "fb20f99c1935f669ae185db0e4a8ac15eda099d676a8ed0f565aaaa52df0fbd1",
+      "error": null,
+      "attempts": 1,
+      "status_label": "reachable"
+    },
+    {
+      "id": "casino-basel",
+      "name": "Grand Casino Basel",
+      "url": "https://www.grandcasinobasel.com/",
+      "ok": true,
+      "status": 200,
+      "sha256": "a130f360e2d648ec922d3accab92421edba038afc0e7a9fbe4bbc01e85ecf63c",
+      "error": null,
+      "attempts": 1,
+      "status_label": "reachable"
+    },
+    {
+      "id": "casino-bern",
+      "name": "Grand Casino Bern",
+      "url": "https://www.grandcasino-bern.ch/",
+      "ok": true,
+      "status": 200,
+      "sha256": "9e75015801769eecb83567d78e53a061abb84cf9c5e70c9f09504d13436345de",
+      "error": null,
+      "attempts": 1,
+      "status_label": "reachable"
+    },
+    {
+      "id": "casino-courrendlin",
+      "name": "Casino Barrière Courrendlin",
+      "url": "https://www.casinosbarriere.com/courrendlin",
+      "ok": true,
+      "status": 200,
+      "sha256": "e6245bfe4235376b74ae3502408e3911d0b70509da35ae0db75bc64ee527587d",
+      "error": null,
+      "attempts": 1,
+      "status_label": "reachable"
+    },
+    {
+      "id": "casino-crans-montana",
+      "name": "Casino Crans-Montana",
+      "url": "https://www.casino-crans-montana.ch/",
+      "ok": false,
+      "status": null,
+      "sha256": null,
+      "error": "<urlopen error [Errno -2] Name or service not known>",
+      "attempts": 3,
+      "status_label": "unreachable"
+    },
+    {
+      "id": "casino-davos",
+      "name": "Casino Davos",
+      "url": "https://www.casinodavos.ch/poker/",
+      "ok": true,
+      "status": 200,
+      "sha256": "a8f195e3f0b18d1fcde928b65d0da1ababd65f39bf68a77edf2682e2c56928a2",
+      "error": null,
+      "attempts": 1,
+      "status_label": "reachable"
+    },
+    {
+      "id": "casino-granges-paccot",
+      "name": "Casino Barrière Fribourg",
+      "url": "https://www.casinosbarriere.com/fribourg",
+      "ok": true,
+      "status": 200,
+      "sha256": "6acf09119b9c732a79cf29770a87088874d9a0f6e9b3ce9cf2e41d6a1a7190f5",
+      "error": null,
+      "attempts": 1,
+      "status_label": "reachable"
+    },
+    {
+      "id": "casino-interlaken",
+      "name": "Casino Interlaken",
+      "url": "https://www.casino-interlaken.ch/",
+      "ok": true,
+      "status": 200,
+      "sha256": "b466ef83a642c337635c66bfb46e03feadb6659ec559860be1609ab7993fd2cc",
+      "error": null,
+      "attempts": 1,
+      "status_label": "reachable"
+    },
+    {
+      "id": "casino-locarno",
+      "name": "Casinò Locarno",
+      "url": "https://www.casinolocarno.ch/it/homepage",
+      "ok": true,
+      "status": 200,
+      "sha256": "005265ef401cfe9629d0067891d145ae6ff303caef4ea8eb334a73997c4c291d",
+      "error": null,
+      "attempts": 1,
+      "status_label": "reachable"
+    },
+    {
+      "id": "casino-lugano",
+      "name": "Casino Lugano",
+      "url": "https://www.casinolugano.ch/",
+      "ok": true,
+      "status": 200,
+      "sha256": "adee2498a184ca6b3a60d5e8e6b04ac9d92d6226ceae383c7379e2120ae40a84",
+      "error": null,
+      "attempts": 1,
+      "status_label": "reachable"
+    },
+    {
+      "id": "casino-luzern",
+      "name": "Grand Casino Luzern",
+      "url": "https://www.grandcasinoluzern.ch/",
+      "ok": true,
+      "status": 200,
+      "sha256": "63f7de655e6934619b30fa830e555bb29d5bd0f9f63a15f39df56208ceccefd4",
+      "error": null,
+      "attempts": 1,
+      "status_label": "reachable"
+    },
+    {
+      "id": "casino-mendrisio",
+      "name": "Casino Admiral Mendrisio",
+      "url": "https://www.admiral.ch/",
+      "ok": true,
+      "status": 200,
+      "sha256": "9ac106a42d981c11db3d0c83eaed8e8881a86ced38712c8efbc238ac4f098f1a",
+      "error": null,
+      "attempts": 1,
+      "status_label": "reachable"
+    },
+    {
+      "id": "casino-meyrin",
+      "name": "Casino du Lac Meyrin",
+      "url": "https://www.pasino.ch/",
+      "ok": true,
+      "status": 200,
+      "sha256": "1aa8b4f37bcc9e91ee79f1be0fb6215fdeaefedecc464a648a457780d104a3e9",
+      "error": null,
+      "attempts": 1,
+      "status_label": "reachable"
+    },
+    {
+      "id": "casino-montreux",
+      "name": "Casino Barrière Montreux",
+      "url": "https://www.casinosbarriere.com/montreux",
+      "ok": true,
+      "status": 200,
+      "sha256": "2d946600ad513f693c84aaa3f77cb8a3f1d2c4117e1b49d88663e84e926836cd",
+      "error": null,
+      "attempts": 1,
+      "status_label": "reachable"
+    },
+    {
+      "id": "casino-neuenburg",
+      "name": "Casino Neuchâtel",
+      "url": "https://www.casino-neuchatel.ch/",
+      "ok": true,
+      "status": 200,
+      "sha256": "3f8687bd8a8034e4d60a352156be7fe2fa55cc5e170f5c824b96c71e5d32af57",
+      "error": null,
+      "attempts": 1,
+      "status_label": "reachable"
+    },
+    {
+      "id": "casino-pfaeffikon",
+      "name": "Swiss Casinos Pfäffikon",
+      "url": "https://www.swisscasinos.ch/en/pfaffikon-0",
+      "ok": true,
+      "status": 200,
+      "sha256": "60eb5802269d6f30cc8d8c3a1330afd95eaee2b8d1ea3dcd358b2935d5f1b8bd",
+      "error": null,
+      "attempts": 1,
+      "status_label": "reachable"
+    },
+    {
+      "id": "casino-prilly",
+      "name": "Grand Casino Prilly",
+      "url": "https://grandcasinoprilly.com/",
+      "ok": true,
+      "status": 200,
+      "sha256": "8db047fb55526cd747f5627ceb85fc829e76561dcb7aa880705a4aebb9d9aa26",
+      "error": null,
+      "attempts": 1,
+      "status_label": "reachable"
+    },
+    {
+      "id": "casino-st-gallen",
+      "name": "Swiss Casinos St. Gallen",
+      "url": "https://www.swisscasinos.ch/",
+      "ok": true,
+      "status": 200,
+      "sha256": "903914af94dce442d4172903624fdc941585930f7e7a152645e7c6144417c4da",
+      "error": null,
+      "attempts": 1,
+      "status_label": "reachable"
+    },
+    {
+      "id": "casino-winterthur",
+      "name": "Swiss Casino Winterthur",
+      "url": "https://www.swisscasinos.ch/",
+      "ok": true,
+      "status": 200,
+      "sha256": "903914af94dce442d4172903624fdc941585930f7e7a152645e7c6144417c4da",
+      "error": null,
+      "attempts": 1,
+      "status_label": "reachable"
+    },
+    {
+      "id": "casino-zuerich",
+      "name": "Swiss Casino Zürich",
+      "url": "https://www.swisscasinos.ch/",
+      "ok": true,
+      "status": 200,
+      "sha256": "903914af94dce442d4172903624fdc941585930f7e7a152645e7c6144417c4da",
+      "error": null,
+      "attempts": 1,
+      "status_label": "reachable"
+    }
+  ]
 }
