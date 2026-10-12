@@ -4,7 +4,7 @@
   {"id":"casino-basel","name":"Grand Casino Basel","city":"Basel","canton":"BS","source_url":"https://www.grandcasinobasel.com/","enabled":true},
   {"id":"casino-bern","name":"Grand Casino Bern","city":"Bern","canton":"BE","source_url":"https://www.grandcasino-bern.ch/","enabled":true},
   {"id":"casino-courrendlin","name":"Casino Barrière Courrendlin","city":"Courrendlin","canton":"JU","source_url":"https://www.casinosbarriere.com/courrendlin","enabled":true},
-  {"id":"casino-crans-montana","name":"Casino Crans-Montana","city":"Crans-Montana","canton":"VS","source_url":"https://www.casino-crans-montana.ch/","enabled":true},
+  {"id":"casino-crans-montana","name":"Casino Crans-Montana","city":"Crans-Montana","canton":"VS","source_url":"https://www.circuscasino.fr/fr/casinos/crans-montana/","enabled":true},
   {"id":"casino-davos","name":"Casino Davos","city":"Davos","canton":"GR","source_url":"https://www.casinodavos.ch/poker/","enabled":true},
   {"id":"casino-granges-paccot","name":"Casino Barrière Fribourg","city":"Granges-Paccot","canton":"FR","source_url":"https://www.casinosbarriere.com/fribourg","enabled":true},
   {"id":"casino-interlaken","name":"Casino Interlaken","city":"Interlaken","canton":"BE","source_url":"https://www.casino-interlaken.ch/","enabled":true},
