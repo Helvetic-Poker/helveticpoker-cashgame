@@ -5,15 +5,15 @@
     "provider": "Casino Davos",
     "city": "Davos",
     "canton": "GR",
-    "variant": "Cash Game Poker",
-    "stakes": "NLH & PLO · verschiedene Limits",
+    "variant": "NLH & PLO",
+    "stakes": "NLH/PLO · 1/2, 1/3, 2/5, 5/5, 5/10, 10/25, 25/50, 50/100, 100/200",
     "min_buy_in": null,
     "max_buy_in": null,
-    "buy_in_note": "abhängig vom gespielten Limit",
-    "schedule": "täglich · aktuelles Limit wird am Pokertisch bekannt gegeben",
+    "buy_in_note": "Limitabhängige Min–Max-Buy-ins: 1/2 CHF 50–500; 1/3 CHF 100–1’000; 2/5 CHF 200–2’000; 5/5 CHF 250–2’500; 5/10 CHF 500–5’000; 10/25 CHF 1’000–10’000; 25/50 CHF 2’500–25’000; 50/100 CHF 5’000–50’000; 100/200 CHF 10’000–100’000",
+    "schedule": "täglich · aktuelle Variante und Limits am Pokertisch",
     "status": "confirmed",
     "source_url": "https://www.casinodavos.ch/poker/",
-    "last_checked": "2026-10-06"
+    "last_checked": "2026-10-20"
   },
   {
     "id": "casino-baden-status",
@@ -36,14 +36,15 @@
     "provider": "Swiss Casino Zürich",
     "city": "Zürich",
     "canton": "ZH",
-    "variant": "NLH",
-    "stakes": "5/5",
+    "variant": "NLH & PLO",
+    "stakes": "NLH 5/5 täglich; NLH 5/10 auf Anfrage; NLH 10/25 auf Anfrage; PLO 5/5 auf Anfrage",
     "min_buy_in": 250,
     "max_buy_in": 1500,
+    "buy_in_note": "CHF 250–1’500 für NLH 5/5; Buy-ins für höhere NLH-Limits und PLO auf Anfrage",
     "schedule": "Mo–Do ab 20:00 · Fr ab 20:00 · Sa ab 19:00 · So ab 18:00",
     "status": "confirmed",
     "source_url": "https://www.swisscasinos.ch/de/zuerich/poker/texas-holdem-poker",
-    "last_checked": "2026-10-06"
+    "last_checked": "2026-10-20"
   },
   {
     "id": "casino-bern-nlh-5-5",
@@ -114,14 +115,14 @@
     "provider": "Casino ADMIRAL Mendrisio",
     "city": "Mendrisio",
     "canton": "TI",
-    "variant": "Poker Cash Game",
-    "stakes": "—",
-    "min_buy_in": null,
+    "variant": "Texas Hold’em & Pot-Limit Omaha (4- und 5-Karten)",
+    "stakes": "Hold’em 2/5 bis 10/20; PLO 5/5 bis 20/20",
+    "min_buy_in": 200,
     "max_buy_in": null,
-    "buy_in_note": "aktuelle Limits auf Anfrage",
-    "schedule": "—",
+    "buy_in_note": "Alle Spiele in EUR. Niedrigste Tische: Buy-in EUR 200–1’000; höchste Limits: Mindest-Buy-in EUR 500, kein Maximal-Buy-in. Weitere limitabhängige Konditionen auf Anfrage.",
+    "schedule": "täglich ab 15:00 bis Betriebsschluss",
     "status": "confirmed",
-    "source_url": "https://www.admiral.ch/de/ueber-uns",
-    "last_checked": "2026-10-07"
+    "source_url": "https://mendrisio.admiral.ch/en/poker-mendrisio/",
+    "last_checked": "2026-10-20"
   }
 ]
