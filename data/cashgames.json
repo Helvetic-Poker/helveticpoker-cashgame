@@ -124,5 +124,21 @@
     "status": "confirmed",
     "source_url": "https://mendrisio.admiral.ch/en/poker-mendrisio/",
     "last_checked": "2026-10-20"
+  },
+  {
+    "id": "casino-pfaeffikon-nlh-5-5",
+    "provider_id": "casino-pfaeffikon",
+    "provider": "Swiss Casinos Pfäffikon",
+    "city": "Pfäffikon",
+    "canton": "SZ",
+    "variant": "NLH",
+    "stakes": "5/5",
+    "min_buy_in": null,
+    "max_buy_in": null,
+    "buy_in_note": "Offiziell angegebener Buy-in: CHF 200; Quelle unterscheidet nicht zwischen Mindest- und Höchst-Buy-in.",
+    "schedule": "täglich ab 20:00",
+    "status": "confirmed",
+    "source_url": "https://www.swisscasinos.ch/de/pfaeffikon/poker/texas-holdem-poker",
+    "last_checked": "2026-10-24"
   }
 ]
