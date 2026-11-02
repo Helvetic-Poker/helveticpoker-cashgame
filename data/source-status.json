@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-01T05:57:30.784933+00:00",
+  "checked_at": "2026-11-02T13:34:59.402533+00:00",
   "expected_sources": 21,
   "reachable_sources": 21,
   "failed_sources": 0,
@@ -11,7 +11,7 @@
       "url": "https://www.grandcasinobaden.ch/",
       "ok": true,
       "status": 200,
-      "sha256": "ddd0836f3d1228dfbaa821b51ffadba2a9af684637429683c58c4df40a0b313e",
+      "sha256": "c66ba6eb2c173ef0afe67bc6640280deaaf99dcbf8cf7904729b6bf955594817",
       "error": null,
       "attempts": 1,
       "status_label": "reachable"
@@ -22,7 +22,7 @@
       "url": "https://www.casinoragaz.ch/",
       "ok": true,
       "status": 200,
-      "sha256": "2d21192a2ef988db373ce05c6a9206a8f513f61a9a4446d2adf52b01fa97fec1",
+      "sha256": "f36c8a222e0cb94b1941cbe61154a1b7fc5cd60b5835f407a30350830ac20f9c",
       "error": null,
       "attempts": 1,
       "status_label": "reachable"
@@ -33,7 +33,7 @@
       "url": "https://www.grandcasinobasel.com/",
       "ok": true,
       "status": 200,
-      "sha256": "a5e46e03b38c5c3d0f2de645c227a7271d9639f60e375abccc0f6713137a806d",
+      "sha256": "7975afee8170c5cd71c4f685e103db06576c586ff99e0cffb5d8cac3750798cb",
       "error": null,
       "attempts": 1,
       "status_label": "reachable"
@@ -44,7 +44,7 @@
       "url": "https://www.grandcasino-bern.ch/",
       "ok": true,
       "status": 200,
-      "sha256": "a7b32b38724f7737ae65da5a4f3827bc206d22750afc25a4a150561acb2b6a19",
+      "sha256": "0d8098e918e0fcf7a4b88dd7c5678054914a37f482ef3ba2a85fd1d645bf41e1",
       "error": null,
       "attempts": 1,
       "status_label": "reachable"
@@ -55,7 +55,7 @@
       "url": "https://www.casinosbarriere.com/courrendlin",
       "ok": true,
       "status": 200,
-      "sha256": "d62b160f52a0b673658db49f3cafb4b88116a544dcee5f61a9d34b5f08841a51",
+      "sha256": "c38b7c33196b851ab95cc898a5f358571f471ab9392f691d51cf0e5f96fe09ff",
       "error": null,
       "attempts": 1,
       "status_label": "reachable"
@@ -66,7 +66,7 @@
       "url": "https://www.circuscasino.fr/fr/casinos/crans-montana/",
       "ok": true,
       "status": 200,
-      "sha256": "f06fa8c7bbdb4451c525a3326ac0670f1e9a07e81f08504895edfbb50f1fca51",
+      "sha256": "6aaa629cb36738859572a98e7ca16e3d746df94c17f9fb1cdba748f1c727b8b1",
       "error": null,
       "attempts": 1,
       "status_label": "reachable"
@@ -77,7 +77,7 @@
       "url": "https://www.casinodavos.ch/poker/",
       "ok": true,
       "status": 200,
-      "sha256": "7dd6f992c7a8cc610fe186a519e6f11f05a6055168eb66bd4b80b835d3c69bf7",
+      "sha256": "8a211546d3de63bfa43710fd2f89ff7d706005ea11797dcea8caed5657f7609f",
       "error": null,
       "attempts": 1,
       "status_label": "reachable"
@@ -88,7 +88,7 @@
       "url": "https://www.casinosbarriere.com/fribourg",
       "ok": true,
       "status": 200,
-      "sha256": "f31b72c8c3f30887f2b1bdd426ca01c7bbbba46bc98c4ac7cb3b8c11d3825ff4",
+      "sha256": "4892d946108b9d79b8b404b248c0746d9ba9a8ee779b48a49842d322ea4a5c29",
       "error": null,
       "attempts": 1,
       "status_label": "reachable"
@@ -99,7 +99,7 @@
       "url": "https://www.casino-interlaken.ch/",
       "ok": true,
       "status": 200,
-      "sha256": "a68276cab65d6933c36a6f8135fa5083c350ee16d3c9bb5ff4fa79990db2d14f",
+      "sha256": "f3a8e9a7dffacdf9689397939996b4b4df63a3f86bd31dc7e2521eaa7873c95c",
       "error": null,
       "attempts": 1,
       "status_label": "reachable"
@@ -110,7 +110,7 @@
       "url": "https://www.casinolocarno.ch/it/homepage",
       "ok": true,
       "status": 200,
-      "sha256": "4a0baebf38b7258a017cac3a054eda8d8fb67b7721526f4e6ed7f375258511e2",
+      "sha256": "63b68d8bf8bb7b59f32c1ff12787a408d422562604c8d7c8f482277dc318c38a",
       "error": null,
       "attempts": 1,
       "status_label": "reachable"
@@ -121,7 +121,7 @@
       "url": "https://www.casinolugano.ch/",
       "ok": true,
       "status": 200,
-      "sha256": "b17e7273ab2d64634dc146dd83db20a681d275a97a611acec6d9cf9e72be236a",
+      "sha256": "9fb3b761f21265232ab223cfc227dbf1624eb880ae540c567ebdb74a7bd069f0",
       "error": null,
       "attempts": 1,
       "status_label": "reachable"
@@ -154,7 +154,7 @@
       "url": "https://www.pasino.ch/",
       "ok": true,
       "status": 200,
-      "sha256": "deca36f67aa97aeb5a9759ddd290ecbab3a09f86f845346a0303d948fae024df",
+      "sha256": "b70047e97b60a176274de911e840c33372930922d0ff3157839a1e22c1d7cb9a",
       "error": null,
       "attempts": 1,
       "status_label": "reachable"
@@ -165,7 +165,7 @@
       "url": "https://www.casinosbarriere.com/montreux",
       "ok": true,
       "status": 200,
-      "sha256": "bd3b5cc504fff58ce3de1b43b7eac4cc6fc7d5cb46fe3e780e43ff1d1c8d724c",
+      "sha256": "5de45b3d72ab665a43f263833455c70d04052a108d9a8f027d1a349d227abdc5",
       "error": null,
       "attempts": 1,
       "status_label": "reachable"
@@ -176,7 +176,7 @@
       "url": "https://www.casino-neuchatel.ch/",
       "ok": true,
       "status": 200,
-      "sha256": "b884fc2ac5c0c4d5d19cf1a8bbd53b0da32f118a4cb7eee76be1c7806fc55c2c",
+      "sha256": "1a13ed730b4c3c2c601c19a301c1c64a9c4d8bdff4ebfc077dd7ec6ec576fea7",
       "error": null,
       "attempts": 1,
       "status_label": "reachable"
@@ -187,7 +187,7 @@
       "url": "https://www.swisscasinos.ch/en/pfaffikon-0",
       "ok": true,
       "status": 200,
-      "sha256": "74de6b2f1b0461cf3f0d8717dd340a251ca498f5539691defb952560018f104d",
+      "sha256": "03950790944ddd647c433be7d91c00881feee52e429e6654132ae34148d8e1c3",
       "error": null,
       "attempts": 1,
       "status_label": "reachable"
@@ -198,7 +198,7 @@
       "url": "https://grandcasinoprilly.com/",
       "ok": true,
       "status": 200,
-      "sha256": "fbd3d5d4be59c0c936e42495fb2cb012b6abbe14f4562636f1f7d9b3548d74ae",
+      "sha256": "d3d9251fdb3c17bf168cb5c21e11c90ff70bf88b62751ef24b44a3cf46dab026",
       "error": null,
       "attempts": 1,
       "status_label": "reachable"
@@ -209,7 +209,7 @@
       "url": "https://www.swisscasinos.ch/",
       "ok": true,
       "status": 200,
-      "sha256": "ac04f7d7c637dc1698e258925e13015fde5cf26f4b15b84efc00495ee5701959",
+      "sha256": "52258b30d4e87607dd705b8aec8e8b456a65fedc7e71233ed98bc862cb65ab24",
       "error": null,
       "attempts": 1,
       "status_label": "reachable"
@@ -220,7 +220,7 @@
       "url": "https://www.swisscasinos.ch/",
       "ok": true,
       "status": 200,
-      "sha256": "ac04f7d7c637dc1698e258925e13015fde5cf26f4b15b84efc00495ee5701959",
+      "sha256": "52258b30d4e87607dd705b8aec8e8b456a65fedc7e71233ed98bc862cb65ab24",
       "error": null,
       "attempts": 1,
       "status_label": "reachable"
@@ -231,7 +231,7 @@
       "url": "https://www.swisscasinos.ch/",
       "ok": true,
       "status": 200,
-      "sha256": "ac04f7d7c637dc1698e258925e13015fde5cf26f4b15b84efc00495ee5701959",
+      "sha256": "52258b30d4e87607dd705b8aec8e8b456a65fedc7e71233ed98bc862cb65ab24",
       "error": null,
       "attempts": 1,
       "status_label": "reachable"
